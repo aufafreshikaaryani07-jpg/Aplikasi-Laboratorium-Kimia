@@ -1,10 +1,6 @@
 import streamlit as st
 import math
 
-st.markdown(
-    ":violet-badge[:material/star: Favorite] :orange-badge[⚠️ Needs review] :gray-badge[Deprecated]"
-)
-
 # =====================================================
 # DATABASE ALAT LAB
 # =====================================================
@@ -277,4 +273,6 @@ elif menu == "Kalkulator pH":
         hasil = -math.log10(h)
 
         st.success(f"pH = {round(hasil,2)}")
+    
         
+      
