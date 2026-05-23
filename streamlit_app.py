@@ -166,7 +166,7 @@ elif menu == "Kalkulator Kadar":
         FP = st.number_input("Faktor pengenceran")
         V_sampel = st.number_input("Volume sampel (mL)")
 
-        if st.button("Hitung"):
+        if st.button("Hitung Kadar"):
 
             hasil = ((V * N * 60) * (10**-3) * FP * 100) / V_sampel
 
@@ -183,7 +183,7 @@ elif menu == "Kalkulator Kadar":
         N = st.number_input("Normalitas/N(mgrek/mL)")
         V_sampel = st.number_input("Volume sampel (mL)")
 
-        if st.button("Hitung"):
+        if st.button("Hitung Kadar"):
 
             BE_NaOH = 40
             BE_Na2CO3 = 53
@@ -204,7 +204,7 @@ elif menu == "Kalkulator Kadar":
         N = st.number_input("Normalitas/N(mgrek/mL)")
         V_sampel = st.number_input("Volume sampel (mL)")
 
-        if st.button("Hitung"):
+        if st.button("Hitung Kadar"):
 
             hasil = ((V * N * 56) * (10**-3) * 100) / V_sampel
 
@@ -220,7 +220,7 @@ elif menu == "Kalkulator Kadar":
         N = st.number_input("Normalitas/N(mgrek/mL)")
         V_sampel = st.number_input("Volume sampel (mL)")
 
-        if st.button("Hitung"):
+        if st.button("Hitung Kadar"):
 
             hasil = ((V * N * 17.75) * (10**-3) * 100/5 * 100) / V_sampel
 
@@ -236,7 +236,7 @@ elif menu == "Kalkulator Kadar":
         N = st.number_input("Normalitas/N(mgrek/mL)")
         V_sampel = st.number_input("Volume sampel (mL)")
 
-        if st.button("Hitung"):
+        if st.button("Hitung Kadar"):
 
             hasil = ((V * N * 35.5) * (10**-3) * 100) / V_sampel
 
@@ -252,7 +252,7 @@ elif menu == "Kalkulator Kadar":
         M = st.number_input("Molaritas/M(mmol/mL)")
         V_sampel = st.number_input("Volume sampel (L)")
 
-        if st.button("Hitung"):
+        if st.button("Hitung Kadar"):
 
             hasil = ((V * M * 100)) / V_sampel
 
