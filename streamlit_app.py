@@ -2,68 +2,6 @@ import streamlit as st
 import math
 
 # =====================================================
-# DATABASE ALAT LAB
-# =====================================================
-
-alat_lab = [
-
-    "Alu",
-    "Batang Pengaduk",
-    "Beaker Glass",
-    "Botol Reagen",
-    "Botol Timbang",
-    "Botol Semprot",
-    "Buret",
-    "Bunsen",
-    "Cawan Petri",
-    "Corong Kaca",
-    "Cawan Porselen",
-    "Corong Pisah",
-    "Desikator",
-    "Erlenmeyer",
-    "Gelas Ukur",
-    "Gegep Besi",
-    "Gegep Kayu",
-    "Hot Plate",
-    "Inkubator",
-    "Jarum Ose",
-    "Kaca Arloji",
-    "Kaki Tiga",
-    "Kasa Asbes",
-    "Kertas Saring",
-    "Klem Buret",
-    "Kuvet",
-    "Labu Alas Bulat",
-    "Labu Takar",
-    "Laminar Air Flow",
-    "Mikropipet",
-    "Mortar",
-    "Mekker",
-    "Neraca Analitik",
-    "Oven",
-    "pH meter",
-    "Pipet Volume",
-    "Pipet Tetes",
-    "Pipet Mohr",
-    "Piknometer",
-    "Polismen",
-    "Rak Tabung Reaksi",
-    "Sentrifus",
-    "Segitiga Porselen",
-    "Spatula",
-    "Spektrofotometer",
-    "Statif",
-    "Spirtus",
-    "Soxhlet",
-    "Tabung Reaksi",
-    "Tanur",
-    "Tutup Kaca",
-    "Termometer",
-    "Vortex",
-    "Water bath"
-]
-
-# =====================================================
 # SMART LAB CHEMISTRY LANDING PAGE
 # =====================================================
 
@@ -211,6 +149,68 @@ menu = st.sidebar.selectbox(
         "Kalkulator pH"
     ]
 )
+# =====================================================
+# DATABASE ALAT LAB
+# =====================================================
+
+alat_lab = [
+
+    "Alu",
+    "Batang Pengaduk",
+    "Beaker Glass",
+    "Botol Reagen",
+    "Botol Timbang",
+    "Botol Semprot",
+    "Buret",
+    "Bunsen",
+    "Cawan Petri",
+    "Corong Kaca",
+    "Cawan Porselen",
+    "Corong Pisah",
+    "Desikator",
+    "Erlenmeyer",
+    "Gelas Ukur",
+    "Gegep Besi",
+    "Gegep Kayu",
+    "Hot Plate",
+    "Inkubator",
+    "Jarum Ose",
+    "Kaca Arloji",
+    "Kaki Tiga",
+    "Kasa Asbes",
+    "Kertas Saring",
+    "Klem Buret",
+    "Kuvet",
+    "Labu Alas Bulat",
+    "Labu Takar",
+    "Laminar Air Flow",
+    "Mikropipet",
+    "Mortar",
+    "Mekker",
+    "Neraca Analitik",
+    "Oven",
+    "pH meter",
+    "Pipet Volume",
+    "Pipet Tetes",
+    "Pipet Mohr",
+    "Piknometer",
+    "Polismen",
+    "Rak Tabung Reaksi",
+    "Sentrifus",
+    "Segitiga Porselen",
+    "Spatula",
+    "Spektrofotometer",
+    "Statif",
+    "Spirtus",
+    "Soxhlet",
+    "Tabung Reaksi",
+    "Tanur",
+    "Tutup Kaca",
+    "Termometer",
+    "Vortex",
+    "Water bath"
+]
+
 
 # =====================================================
 # MENU CEK ALAT
