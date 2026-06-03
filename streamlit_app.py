@@ -136,18 +136,17 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-if menu == home "Home":
-    st.markdown("""
-    <div class="hero">
-        <h1>🧪 SMART LAB CHEMISTRY</h1>
-        <h3>Laboratory Assistant for Students & Researchers</h3>
-        <p>
-        Temukan alat laboratorium, hitung molaritas,
-        pengenceran, kadar zat, dan pH dengan cepat
-        dalam satu platform yang praktis dan modern.
-        </p>
-        </div>
-        """, unsafe_allow_html=True)
+st.markdown("""
+<div class="hero">
+<h1>🧪 SMART LAB CHEMISTRY</h1>
+<h3>Laboratory Assistant for Students & Researchers</h3>
+<p>
+Temukan alat laboratorium, hitung molaritas,
+pengenceran, kadar zat, dan pH dengan cepat
+dalam satu platform yang praktis dan modern.
+</p>
+</div>
+""", unsafe_allow_html=True)
 
 st.image(
     "https://images.unsplash.com/photo-1579165466741-7f35e4755660",
