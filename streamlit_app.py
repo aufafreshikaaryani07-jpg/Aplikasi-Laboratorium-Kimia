@@ -149,7 +149,7 @@ dalam satu platform yang praktis dan modern.
 """, unsafe_allow_html=True)
 
 st.image(
-    "https://images.unsplash.com/photo-1532187643603-ba119ca4109e",
+    "https://images.unsplash.com/photo-1579165466741-7f35e4755660",
     use_container_width=True
 )
 st.write("")
