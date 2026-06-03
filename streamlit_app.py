@@ -148,7 +148,7 @@ kadar zat, dan pH dalam satu platform modern.
 """, unsafe_allow_html=True)
 
 st.image(
-    "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+    "https://images.unsplash.com/photo-1532187643603-ba119ca4109e",
     use_container_width=True
 )
 st.write("")
