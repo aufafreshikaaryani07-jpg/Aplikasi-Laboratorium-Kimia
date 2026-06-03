@@ -141,8 +141,9 @@ st.markdown("""
 <h1>🧪 SMART LAB CHEMISTRY</h1>
 <h3>Laboratory Assistant for Students & Researchers</h3>
 <p>
-Cari alat laboratorium, hitung molaritas, pengenceran,
-kadar zat, dan pH dalam satu platform modern.
+Temukan alat laboratorium, hitung molaritas,
+pengenceran, kadar zat, dan pH dengan cepat
+dalam satu platform yang praktis dan modern.
 </p>
 </div>
 """, unsafe_allow_html=True)
@@ -185,12 +186,6 @@ margin-bottom:20px;
 <h2>🧪 Welcome to Smart Lab Chemistry</h2>
 
 <p style="font-size:17px;">
-Temukan alat laboratorium, hitung molaritas,
-pengenceran, kadar zat, dan pH dengan cepat
-dalam satu platform yang praktis dan modern.
-</p>
-
-<p>
 Selamat menggunakan aplikasi laboratorium kimia yang dirancang untuk membantu
 mahasiswa, praktikan, dan peneliti dalam melakukan perhitungan serta pencarian
 alat laboratorium secara cepat, mudah, dan akurat.
