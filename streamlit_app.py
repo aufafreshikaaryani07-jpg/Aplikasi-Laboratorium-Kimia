@@ -163,9 +163,6 @@ with c2:
     st.metric("🧮 Kalkulator", "5")
 
 with c3:
-    st.metric("⚗️ Praktikum", "24/7")
-
-with c4:
     st.metric("⚡ Akurasi", "100%")
 
 st.write("")
@@ -188,17 +185,39 @@ with b:
     </div>
     """, unsafe_allow_html=True)
 
-with c:
-    st.markdown("""
-    <div class="card">
-    <h3>⚗️ Analisis Praktikum</h3>
-    <p>Membantu pengolahan dan analisis data laboratorium.</p>
-    </div>
-    """, unsafe_allow_html=True)
+st.markdown("""
+<div style="
+background:linear-gradient(135deg,#001845,#023e8a,#0077b6);
+padding:25px;
+border-radius:20px;
+color:white;
+text-align:center;
+margin-top:10px;
+margin-bottom:20px;
+">
 
-st.success(
-    "Selamat datang di Smart Lab Chemistry. "
-    "Gunakan menu di sebelah kiri untuk mengakses seluruh fitur laboratorium."
+<h2>🧪 Welcome to Smart Lab Chemistry</h2>
+
+<p style="font-size:17px;">
+Temukan alat laboratorium, hitung molaritas,
+pengenceran, kadar zat, dan pH dengan cepat
+dalam satu platform yang praktis dan modern.
+</p>
+
+<p>
+🔬 54 Alat Laboratorium &nbsp; | &nbsp;
+🧮 5 Kalkulator Kimia &nbsp; | &nbsp;
+⚡ Akurasi 100%
+</p>
+
+<p>
+Selamat menggunakan aplikasi laboratorium kimia yang dirancang untuk membantu
+mahasiswa, praktikan, dan peneliti dalam melakukan perhitungan serta pencarian
+alat laboratorium secara cepat, mudah, dan akurat.
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 )
 
 st.divider()
