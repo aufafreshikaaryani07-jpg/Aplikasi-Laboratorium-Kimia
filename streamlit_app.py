@@ -204,8 +204,8 @@ menu = st.sidebar.selectbox(
     "MENU UTAMA",
     [
         "Home",
-        if menu == "Home":
-           st.info("Silahkan pilih menu di sebelah kiri untuk mulai menggunakan fitur")
+if menu == "Home":
+   st.info("Silahkan pilih menu di sebelah kiri untuk mulai menggunakan fitur"),
         "Cek Stok Alat Laboratorium",
         "Kalkulator Molaritas",
         "Kalkulator Pengenceran",
