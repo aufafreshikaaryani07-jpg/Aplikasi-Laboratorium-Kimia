@@ -218,7 +218,6 @@ alat laboratorium secara cepat, mudah, dan akurat.
 
 </div>
 """, unsafe_allow_html=True)
-)
 
 st.divider()
 menu = st.sidebar.selectbox(
