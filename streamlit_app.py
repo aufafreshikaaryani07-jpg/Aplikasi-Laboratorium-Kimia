@@ -199,9 +199,11 @@ Gunakan menu di sebelah kiri untuk mengakses seluruh fitur laboratorium
 """, unsafe_allow_html=True)
 
 st.divider()
+
 menu = st.sidebar.selectbox(
     "MENU UTAMA",
     [
+        "Home",
         "Cek Stok Alat Laboratorium",
         "Kalkulator Molaritas",
         "Kalkulator Pengenceran",
