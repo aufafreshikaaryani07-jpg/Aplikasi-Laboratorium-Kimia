@@ -214,8 +214,9 @@ dalam satu platform yang praktis dan modern.
 Selamat menggunakan aplikasi laboratorium kimia yang dirancang untuk membantu
 mahasiswa, praktikan, dan peneliti dalam melakukan perhitungan serta pencarian
 alat laboratorium secara cepat, mudah, dan akurat.
+<p>
+Gunakan menu di sebelah kiri untuk mengakses seluruh fitur laboratorium
 </p>
-
 </div>
 """, unsafe_allow_html=True)
 
