@@ -11,7 +11,7 @@ st.set_page_config(
     layout="wide"
 )
 
-    st.markdown("""
+st.markdown("""
 <style>
 
 .main{
@@ -74,6 +74,8 @@ st.set_page_config(
 </style>
 """, unsafe_allow_html=True)
 
+st.divider()
+
 menu = st.sidebar.selectbox(
     "MENU UTAMA",
     [
@@ -85,6 +87,7 @@ menu = st.sidebar.selectbox(
         "Kalkulator pH"
     ]
 )
+
 
 # =====================================================
 # HOME
