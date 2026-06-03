@@ -63,26 +63,155 @@ alat_lab = [
     "Water bath"
 ]
 
+# =====================================================
+# SMART LAB CHEMISTRY LANDING PAGE
+# =====================================================
+
+st.set_page_config(
+    page_title="Smart Lab Chemistry",
+    page_icon="🧪",
+    layout="wide"
+)
+
 st.markdown("""
-<div style="
-background:linear-gradient(135deg,#001845,#0353a4,#00b4d8);
-padding:45px;
-border-radius:25px;
-color:white;
-text-align:center;
-">
+<style>
 
+.main{
+    background: linear-gradient(135deg,#f8fbff,#edf6ff);
+}
+
+[data-testid="stSidebar"]{
+    background: linear-gradient(180deg,#001845,#023e8a,#0077b6);
+}
+
+[data-testid="stSidebar"] *{
+    color:white;
+}
+
+.hero{
+    background: linear-gradient(
+    135deg,
+    #001845,
+    #023e8a,
+    #00b4d8);
+    padding:50px;
+    border-radius:30px;
+    text-align:center;
+    color:white;
+    margin-bottom:25px;
+    box-shadow:0px 12px 30px rgba(0,0,0,0.2);
+}
+
+.hero h1{
+    font-size:58px;
+    margin-bottom:10px;
+}
+
+.hero h3{
+    color:#caf0f8;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0px 4px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.stButton > button{
+    width:100%;
+    height:50px;
+    border:none;
+    border-radius:12px;
+    background:#0077b6;
+    color:white;
+    font-size:16px;
+}
+
+.stButton > button:hover{
+    background:#0096c7;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<div class="hero">
 <h1>🧪 SMART LAB CHEMISTRY</h1>
-
 <h3>Laboratory Assistant for Students & Researchers</h3>
-
-<p style="font-size:18px;">
+<p>
 Cari alat laboratorium, hitung molaritas, pengenceran,
-kadar zat dan pH dalam satu platform modern.
+kadar zat, dan pH dalam satu platform modern.
 </p>
-
 </div>
 """, unsafe_allow_html=True)
+
+st.image(
+    "https://images.unsplash.com/photo-1579165466741-7f35e4755660",
+    use_container_width=True
+)
+
+st.write("")
+
+c1,c2,c3,c4 = st.columns(4)
+
+with c1:
+    st.metric("🔬 Alat", "54")
+
+with c2:
+    st.metric("🧮 Kalkulator", "5")
+
+with c3:
+    st.metric("⚗️ Praktikum", "24/7")
+
+with c4:
+    st.metric("⚡ Akurasi", "100%")
+
+st.write("")
+
+a,b,c = st.columns(3)
+
+with a:
+    st.markdown("""
+    <div class="card">
+    <h3>🔍 Pencarian Alat</h3>
+    <p>Temukan alat laboratorium dengan cepat dan mudah.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with b:
+    st.markdown("""
+    <div class="card">
+    <h3>🧮 Kalkulator Kimia</h3>
+    <p>Molaritas, Pengenceran, Kadar dan pH.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c:
+    st.markdown("""
+    <div class="card">
+    <h3>⚗️ Analisis Praktikum</h3>
+    <p>Membantu pengolahan dan analisis data laboratorium.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.success(
+    "Selamat datang di Smart Lab Chemistry. "
+    "Gunakan menu di sebelah kiri untuk mengakses seluruh fitur laboratorium."
+)
+
+st.divider()
+menu = st.sidebar.selectbox(
+    "MENU UTAMA",
+    [
+        "Cek Stok Alat Laboratorium",
+        "Kalkulator Molaritas",
+        "Kalkulator Pengenceran",
+        "Kalkulator Kadar",
+        "Kalkulator pH"
+    ]
+)
 # =====================================================
 # MENU CEK ALAT
 # =====================================================
