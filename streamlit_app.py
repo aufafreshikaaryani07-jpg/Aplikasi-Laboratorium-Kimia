@@ -138,7 +138,68 @@ Gunakan menu di sebelah kiri untuk mengakses seluruh fitur laboratorium
 
 st.divider()
 
-menu = st.sidebar.selectbox(
+menu = st.sidebar.selectbox(st.markdown("""
+<div class="hero">
+<h1>🧪 SMART LAB CHEMISTRY</h1>
+<h3>Laboratory Assistant for Students & Researchers</h3>
+<p>
+Temukan alat laboratorium, hitung molaritas,
+pengenceran, kadar zat, dan pH dengan cepat
+dalam satu platform yang praktis dan modern.
+</p>
+</div>
+""", unsafe_allow_html=True)
+
+st.image(
+    "https://images.unsplash.com/photo-1579165466741-7f35e4755660",
+    use_container_width=True
+)
+st.write("")
+
+a,b,c = st.columns(3)
+
+with a:
+    st.markdown("""
+    <div class="card">
+    <h3>🔍 Pencarian Alat</h3>
+    <p>Temukan alat laboratorium dengan cepat dan mudah.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c:
+    st.markdown("""
+    <div class="card">
+    <h3>🧮 Kalkulator Kimia</h3>
+    <p>Molaritas, Pengenceran, Kadar dan pH.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("""
+<div style="
+background:linear-gradient(135deg,#001845,#023e8a,#0077b6);
+padding:25px;
+border-radius:20px;
+color:white;
+text-align:center;
+margin-top:10px;
+margin-bottom:20px;
+">
+
+<h2>🧪 Welcome to Smart Lab Chemistry</h2>
+
+<p style="font-size:17px;">
+Selamat menggunakan aplikasi laboratorium kimia yang dirancang untuk membantu
+mahasiswa, praktikan, dan peneliti dalam melakukan perhitungan serta pencarian
+alat laboratorium secara cepat, mudah, dan akurat.
+</p>
+
+<p>
+Gunakan menu di sebelah kiri untuk mengakses seluruh fitur laboratorium
+</p>
+
+</div>
+""", unsafe_allow_html=True)
+
     "MENU UTAMA",
     [
         "Home",
