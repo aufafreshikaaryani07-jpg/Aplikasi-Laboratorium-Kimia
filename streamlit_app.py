@@ -154,19 +154,6 @@ st.image(
 
 st.write("")
 
-c1,c2,c3,c4 = st.columns(4)
-
-with c1:
-    st.metric("🔬 Alat", "54")
-
-with c2:
-    st.metric("🧮 Kalkulator", "5")
-
-with c3:
-    st.metric("⚡ Akurasi", "100%")
-
-st.write("")
-
 a,b,c = st.columns(3)
 
 with a:
@@ -177,7 +164,7 @@ with a:
     </div>
     """, unsafe_allow_html=True)
 
-with b:
+with c:
     st.markdown("""
     <div class="card">
     <h3>🧮 Kalkulator Kimia</h3>
