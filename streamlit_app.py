@@ -211,31 +211,6 @@ menu = st.sidebar.selectbox(
         "Kalkulator pH"
     ]
 )
-menu = st.sidebar.selectbox(
-    [
-        "Cek Stok Alat Laboratorium", 
-    ]
-)
-menu = st.sidebar.selectbox(
-    [
-        "Kalkulator Molaritas"
-    ]
-)
-menu = st.sidebar.selectbox(
-    [
-        "Kalkulator Pengenceran"
-    ]
-)
-menu = st.sidebar.selectbox(
-    [
-        "Kalkulator Kadar"
-    ]
-)
-menu = st.sidebar.selectbox(
-    [
-        "Kalkulator pH"
-    ]
-)
 
 # =====================================================
 # MENU CEK ALAT
