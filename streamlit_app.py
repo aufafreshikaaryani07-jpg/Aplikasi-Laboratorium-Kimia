@@ -63,112 +63,26 @@ alat_lab = [
     "Water bath"
 ]
 
-# =====================================================
-# TAMPILAN MODERN
-# =====================================================
-
-st.set_page_config(
-    page_title="Smart Lab Chemistry",
-    page_icon="🧪",
-    layout="wide"
-)
-
 st.markdown("""
-<style>
+<div style="
+background:linear-gradient(135deg,#001845,#0353a4,#00b4d8);
+padding:45px;
+border-radius:25px;
+color:white;
+text-align:center;
+">
 
-.main{
-    background: linear-gradient(135deg,#f8fbff,#edf6ff);
-}
-
-[data-testid="stSidebar"]{
-    background: linear-gradient(180deg,#023e8a,#0077b6);
-}
-
-[data-testid="stSidebar"] *{
-    color:white;
-}
-
-.hero{
-    padding:40px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#0077b6,#00b4d8);
-    color:white;
-    text-align:center;
-    margin-bottom:25px;
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
-}
-
-.hero h1{
-    font-size:50px;
-}
-
-.hero p{
-    font-size:18px;
-}
-
-.stButton > button{
-    width:100%;
-    background:#0077b6;
-    color:white;
-    border:none;
-    border-radius:12px;
-    height:50px;
-    font-size:16px;
-}
-
-.stButton > button:hover{
-    background:#0096c7;
-}
-
-[data-testid="stMetric"]{
-    background:white;
-    border-radius:15px;
-    padding:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<div class="hero">
 <h1>🧪 SMART LAB CHEMISTRY</h1>
-<p>
-Aplikasi Laboratorium Kimia Terintegrasi untuk pencarian alat laboratorium,
-perhitungan molaritas, pengenceran, kadar zat dan pH secara cepat dan akurat.
+
+<h3>Laboratory Assistant for Students & Researchers</h3>
+
+<p style="font-size:18px;">
+Cari alat laboratorium, hitung molaritas, pengenceran,
+kadar zat dan pH dalam satu platform modern.
 </p>
+
 </div>
 """, unsafe_allow_html=True)
-
-c1,c2,c3 = st.columns(3)
-
-with c1:
-    st.metric("🔬 Alat Laboratorium", "54")
-
-with c2:
-    st.metric("🧮 Kalkulator", "5")
-
-with c3:
-    st.metric("⚡ Akurasi", "100%")
-
-st.info(
-    "Selamat datang di Smart Lab Chemistry. "
-    "Gunakan menu di sebelah kiri untuk mengakses seluruh fitur laboratorium."
-)
-
-st.divider()
-
-menu = st.sidebar.selectbox(
-    "MENU UTAMA",
-    [
-        "Cek Stok Alat Laboratorium",
-        "Kalkulator Molaritas",
-        "Kalkulator Pengenceran",
-        "Kalkulator Kadar",
-        "Kalkulator pH"
-    ]
-)
-
 # =====================================================
 # MENU CEK ALAT
 # =====================================================
