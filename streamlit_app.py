@@ -12,15 +12,6 @@ st.set_page_config(
 )
 
 st.markdown("""
-<div style='text-align:center; padding:50px 0;'>
-    <h1 style='font-size:60px;'>⚗️ Molevia</h1>
-    <p style='font-size:24px; color:gray;'>
-        The Pathway Through Chemistry
-    </p>
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown("""
 <style>
 
 .main{
@@ -106,8 +97,8 @@ if menu == "Home":
 
     st.markdown("""
     <div class="hero">
-    <h1>🧪 SMART LAB CHEMISTRY</h1>
-    <h3>Laboratory Assistant for Students & Researchers</h3>
+    <h1>🧪 MOLEVIA</h1>
+    <h3>The Pathway Through Chemistry</h3>
     <p>
     Temukan alat laboratorium, hitung molaritas,
     pengenceran, kadar zat, dan pH dengan cepat
