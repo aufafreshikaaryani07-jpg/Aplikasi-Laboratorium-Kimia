@@ -100,9 +100,8 @@ if menu == "Home":
     <h1>🧪 MOLEVIA</h1>
     <h3>The Pathway Through Chemistry</h3>
     <p>
-    Temukan alat laboratorium, hitung molaritas,
-    pengenceran, kadar zat, dan pH dengan cepat
-    dalam satu platform yang praktis dan modern.
+    Molevia hadir sebagai platform laboratorium digital yang mengintegrasikan perhitungan kimia dan 
+    manajemen inventaris dalam satu aplikasi yang sederhana, cepat, dan akurat.
     </p>
     </div>
     """, unsafe_allow_html=True)
