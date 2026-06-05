@@ -402,24 +402,52 @@ elif menu == "Kalkulator Kadar":
 # =====================================================
 # MENU pH
 # =====================================================
-
 elif menu == "Kalkulator pH":
 
     st.header("KALKULATOR pH")
 
-    h = st.number_input("Masukkan konsentrasi H+ (mol/L):", min_value=0.0000001)
+    h = st.number_input(
+        "Masukkan konsentrasi H+ (mol/L):",
+        min_value=1e-14,
+        format="%.14f"
+    )
 
     if st.button("Hitung pH"):
 
-        hasil = -math.log10(h)
-        ph = round(hasil, 2)
-
-        # Klasifikasi pH
-        if ph < 7:
-            sifat = "Asam"
-        elif ph == 7:
-            sifat = "Netral"
+        if h <= 0:
+            st.error("Konsentrasi H+ harus lebih dari 0!")
         else:
-            sifat = "Basa"
+            hasil = -math.log10(h)
+            ph = round(hasil, 2)
 
-        st.success(f"pH = {ph} ({sifat})")
+            # Batasi agar tetap dalam skala pH
+            if ph < 0:
+                ph = 0
+            elif ph > 14:
+                ph = 14
+
+            # Klasifikasi lengkap
+            if ph < 1:
+                sifat = "Asam Sangat Kuat"
+            elif ph < 3:
+                sifat = "Asam Kuat"
+            elif ph < 6:
+                sifat = "Asam Lemah"
+            elif ph == 7:
+                sifat = "Netral"
+            elif ph <= 9:
+                sifat = "Basa Lemah"
+            elif ph <= 12:
+                sifat = "Basa Kuat"
+            else:
+                sifat = "Basa Sangat Kuat"
+
+            # Output dengan warna
+            if ph < 7:
+                st.error(f"pH = {ph} ({sifat})")
+            elif ph == 7:
+                st.info(f"pH = {ph} ({sifat})")
+            else:
+                st.success(f"pH = {ph} ({sifat})")
+
+
