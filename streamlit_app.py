@@ -413,17 +413,27 @@ elif menu == "Kalkulator pH":
     if st.button("Hitung pH"):
 
         try:
-            # Support koma Indonesia
+            # Ubah koma jadi titik (format Indonesia)
             h_input = h_input.replace(",", ".")
-            h = float(h_input)
 
+            # Support format 10^-4
+            if "^" in h_input:
+                base, exp = h_input.split("^")
+                if base.strip() == "10":
+                    h = 10 ** float(exp)
+                else:
+                    h = float(h_input)
+            else:
+                h = float(h_input)
+
+            # Validasi
             if h <= 0:
                 st.error("Konsentrasi H+ harus lebih dari 0!")
             else:
                 hasil = -math.log10(h)
                 ph = round(hasil, 2)
 
-                # Batasi skala pH (opsional tapi disarankan)
+                # Batasi skala pH
                 if ph < 0:
                     ph = 0
                 elif ph > 14:
