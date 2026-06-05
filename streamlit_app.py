@@ -98,10 +98,11 @@ if menu == "Home":
     st.markdown("""
     <div class="hero">
     <h1>🧪 MOLEVIA</h1>
+    <h2>Jalur cerdas menuju penyelesaian perhitungan dan pengelolaan laboratorium kimia</h2>
     <h3>The Pathway Through Chemistry</h3>
     <p>
-    Molevia hadir sebagai platform laboratorium digital yang mengintegrasikan perhitungan kimia dan 
-    manajemen inventaris dalam satu aplikasi yang sederhana, cepat, dan akurat.
+    Molevia hadir sebagai platform laboratorium digital yang mengintegrasikan perhitungan kimia
+    dan manajemen inventaris dalam satu aplikasi yang sederhana, cepat, dan akurat.
     </p>
     </div>
     """, unsafe_allow_html=True)
