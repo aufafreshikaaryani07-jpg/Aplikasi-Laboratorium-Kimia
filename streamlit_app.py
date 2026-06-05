@@ -454,4 +454,4 @@ elif menu == "Kalkulator pH":
                     st.success(f"pH = {ph} ({sifat})")
 
         except:
-            st.error("Masukkan angka yang valid! (contoh: 1e-4 atau 0.0001)")
+            st.error("Masukkan angka yang valid! (contoh: 10^-4 atau 0.0001)")
