@@ -407,7 +407,7 @@ elif menu == "Kalkulator pH":
 
     st.header("KALKULATOR pH")
 
-    h = st.number_input("Masukkan konsentrasi H+ (mol/L):", min_value=0.00000001)
+    h = st.number_input("Masukkan konsentrasi H+ (mol/L):", min_value=0.0000001)
 
     if st.button("Hitung pH"):
 
@@ -415,15 +415,15 @@ elif menu == "Kalkulator pH":
         ph = round(hasil, 2)
 
         # Klasifikasi pH
-       if ph < 3:
-          sifat = "Asam Kuat"
-       elif ph < 7:
-            sifat = "Asam Lemah"
-       elif ph == 7:
-            sifat = "Netral"
-       elif ph <= 11:
-            sifat = "Basa Lemah"
-       else:
-            sifat = "Basa Kuat"
+          if ph < 3:
+             sifat = "Asam Kuat"
+          elif ph < 7:
+               sifat = "Asam Lemah"
+          elif ph == 7:
+               sifat = "Netral"
+          elif ph <= 11:
+               sifat = "Basa Lemah"
+          else:
+               sifat = "Basa Kuat"
 
         st.success(f"pH = {ph} ({sifat})")
