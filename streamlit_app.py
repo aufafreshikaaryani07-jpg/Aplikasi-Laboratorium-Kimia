@@ -412,5 +412,14 @@ elif menu == "Kalkulator pH":
     if st.button("Hitung pH"):
 
         hasil = -math.log10(h)
+        ph = round(hasil, 2)
 
-        st.success(f"pH = {round(hasil,2)}")
+        # Klasifikasi pH
+        if ph < 7:
+            sifat = "Asam"
+        elif ph == 7:
+            sifat = "Netral"
+        else:
+            sifat = "Basa"
+
+        st.success(f"pH = {ph} ({sifat})")
