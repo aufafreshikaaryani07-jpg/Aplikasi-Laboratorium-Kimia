@@ -141,7 +141,7 @@ if menu == "Home":
     margin-bottom:20px;
     ">
 
-    <h2>🧪 Welcome to Molevia</h2>
+    <h2>🔬 Welcome to Molevia</h2>
 
     <p style="font-size:17px;">
     Selamat menggunakan aplikasi laboratorium kimia yang dirancang untuk membantu
