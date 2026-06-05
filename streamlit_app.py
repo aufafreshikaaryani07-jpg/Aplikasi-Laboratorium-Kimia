@@ -407,7 +407,7 @@ elif menu == "Kalkulator pH":
     st.header("KALKULATOR pH")
 
     h_input = st.text_input(
-        "Masukkan konsentrasi H+ (contoh: 1e-4 atau 0.0001)"
+        "Masukkan konsentrasi H+ (contoh: 10^-4 atau 0.0001)"
     )
 
     if st.button("Hitung pH"):
