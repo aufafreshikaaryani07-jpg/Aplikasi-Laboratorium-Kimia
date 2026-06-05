@@ -98,7 +98,6 @@ if menu == "Home":
     st.markdown("""
     <div class="hero">
     <h1>🧪 MOLEVIA</h1>
-    <h2>Jalur cerdas menuju penyelesaian perhitungan dan pengelolaan laboratorium kimia</h2>
     <h3>The Pathway Through Chemistry</h3>
     <p>
     Molevia hadir sebagai platform laboratorium digital yang mengintegrasikan perhitungan kimia
@@ -142,7 +141,7 @@ if menu == "Home":
     margin-bottom:20px;
     ">
 
-    <h2>🧪 Welcome to Smart Lab Chemistry</h2>
+    <h2>🧪 Welcome to Molevia</h2>
 
     <p style="font-size:17px;">
     Selamat menggunakan aplikasi laboratorium kimia yang dirancang untuk membantu
