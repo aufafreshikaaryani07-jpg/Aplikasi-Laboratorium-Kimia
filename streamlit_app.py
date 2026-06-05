@@ -415,15 +415,11 @@ elif menu == "Kalkulator pH":
         ph = round(hasil, 2)
 
         # Klasifikasi pH
-          if ph < 3:
-             sifat = "Asam Kuat"
-          elif ph < 7:
-               sifat = "Asam Lemah"
-          elif ph == 7:
-               sifat = "Netral"
-          elif ph <= 11:
-               sifat = "Basa Lemah"
-          else:
-               sifat = "Basa Kuat"
+        if ph < 7:
+            sifat = "Asam"
+        elif ph == 7:
+            sifat = "Netral"
+        else:
+            sifat = "Basa"
 
         st.success(f"pH = {ph} ({sifat})")
