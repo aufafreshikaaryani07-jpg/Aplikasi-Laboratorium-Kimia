@@ -140,9 +140,7 @@ if menu == "Home":
     margin-top:10px;
     margin-bottom:20px;
     ">
-
-    <h2>🔬 Welcome to Molevia</h2>
-
+    
     <p style="font-size:17px;">
     Selamat menggunakan aplikasi laboratorium kimia yang dirancang untuk membantu
     mahasiswa, praktikan, dan peneliti dalam melakukan perhitungan serta pencarian
