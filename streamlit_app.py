@@ -406,48 +406,52 @@ elif menu == "Kalkulator pH":
 
     st.header("KALKULATOR pH")
 
-    h = st.number_input(
-        "Masukkan konsentrasi H+ (mol/L):",
-        min_value=1e-14,
-        format="%.14f"
+    h_input = st.text_input(
+        "Masukkan konsentrasi H+ (contoh: 1e-4 atau 0.0001)"
     )
 
     if st.button("Hitung pH"):
 
-        if h <= 0:
-            st.error("Konsentrasi H+ harus lebih dari 0!")
-        else:
-            hasil = -math.log10(h)
-            ph = round(hasil, 2)
+        try:
+            # Support koma Indonesia
+            h_input = h_input.replace(",", ".")
+            h = float(h_input)
 
-            # Batasi agar tetap dalam skala pH
-            if ph < 0:
-                ph = 0
-            elif ph > 14:
-                ph = 14
-
-            # Klasifikasi lengkap
-            if ph < 1:
-                sifat = "Asam Sangat Kuat"
-            elif ph < 3:
-                sifat = "Asam Kuat"
-            elif ph < 6:
-                sifat = "Asam Lemah"
-            elif ph == 7:
-                sifat = "Netral"
-            elif ph <= 9:
-                sifat = "Basa Lemah"
-            elif ph <= 12:
-                sifat = "Basa Kuat"
+            if h <= 0:
+                st.error("Konsentrasi H+ harus lebih dari 0!")
             else:
-                sifat = "Basa Sangat Kuat"
+                hasil = -math.log10(h)
+                ph = round(hasil, 2)
 
-            # Output dengan warna
-            if ph < 7:
-                st.error(f"pH = {ph} ({sifat})")
-            elif ph == 7:
-                st.info(f"pH = {ph} ({sifat})")
-            else:
-                st.success(f"pH = {ph} ({sifat})")
+                # Batasi skala pH (opsional tapi disarankan)
+                if ph < 0:
+                    ph = 0
+                elif ph > 14:
+                    ph = 14
 
+                # Klasifikasi
+                if ph < 1:
+                    sifat = "Asam Sangat Kuat"
+                elif ph < 3:
+                    sifat = "Asam Kuat"
+                elif ph < 6:
+                    sifat = "Asam Lemah"
+                elif ph == 7:
+                    sifat = "Netral"
+                elif ph <= 9:
+                    sifat = "Basa Lemah"
+                elif ph <= 12:
+                    sifat = "Basa Kuat"
+                else:
+                    sifat = "Basa Sangat Kuat"
 
+                # Output warna
+                if ph < 7:
+                    st.error(f"pH = {ph} ({sifat})")
+                elif ph == 7:
+                    st.info(f"pH = {ph} ({sifat})")
+                else:
+                    st.success(f"pH = {ph} ({sifat})")
+
+        except:
+            st.error("Masukkan angka yang valid! (contoh: 1e-4 atau 0.0001)")
