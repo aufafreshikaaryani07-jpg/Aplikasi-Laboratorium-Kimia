@@ -153,33 +153,7 @@ if menu == "Home":
 
     </div>
     """, unsafe_allow_html=True)
-st.markdown("""
-<div style="
-background:linear-gradient(135deg,#001845,#023e8a,#0077b6);
-padding:30px;
-border-radius:20px;
-color:white;
-text-align:center;
-margin-top:20px;
-">
-
-<h2>👨‍🔬 Creator MOLEVIA</h2>
-
-<h4>Politeknik AKA Bogor</h4>
-<h4>Kelompok 5 - Kelas 1D</h4>
-
-<hr>
-
-<p><b>Aufa Freshika Aryani</b><br>NIM : 2560588</p>
-
-<p><b>Aura Halimah Natanegoro</b><br>NIM : 2560589</p>
-
-<p><b>Ayu Asyfa Mei Asyhari</b><br>NIM : 2560593</p>
-
-<p><b>Oscar Tirta Sugema</b><br>NIM : 2560735</p>
-
-</div>
-""", unsafe_allow_html=True)
+    
 st.divider()
 # =====================================================
 # DATABASE ALAT LAB
@@ -488,3 +462,31 @@ elif menu == "Kalkulator pH":
 
         except:
             st.error("Masukkan angka yang valid! (contoh: 10^-4 atau 0.0001)")
+
+st.markdown("""
+<div style="
+background:linear-gradient(135deg,#001845,#023e8a,#0077b6);
+padding:30px;
+border-radius:20px;
+color:white;
+text-align:center;
+margin-top:20px;
+">
+
+<h2>👨‍🔬 Creator MOLEVIA</h2>
+
+<h4>Politeknik AKA Bogor</h4>
+<h4>Kelompok 5 - Kelas 1D</h4>
+
+<hr>
+
+<p><b>Aufa Freshika Aryani</b><br>NIM : 2560588</p>
+
+<p><b>Aura Halimah Natanegoro</b><br>NIM : 2560589</p>
+
+<p><b>Ayu Asyfa Mei Asyhari</b><br>NIM : 2560593</p>
+
+<p><b>Oscar Tirta Sugema</b><br>NIM : 2560735</p>
+
+</div>
+""", unsafe_allow_html=True)
