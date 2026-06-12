@@ -347,7 +347,7 @@ elif menu == "Cek Stok Alat Laboratorium":
             st.warning("Silakan pilih salah satu nama alat pada menu drop-down terlebih dahulu.")
 
     st.write("---")
-    st.subheader("Katalog Inventaris Lengkap (Urutan Abjad A-Z)")
+    st.subheader("Katalog Inventaris Lengkap")
     
     for nama_item, data_item in database_alat.items():
         with st.expander(f"📦 {nama_item} (Stok: {data_item['stok']} Unit)"):
