@@ -463,7 +463,8 @@ elif menu == "Kalkulator pH":
         except:
             st.error("Masukkan angka yang valid! (contoh: 10^-4 atau 0.0001)")
 
-st.markdown("""
+     elif menu == "Tentang Creator"
+            st.markdown("""
 <div style="
 background:linear-gradient(135deg,#001845,#023e8a,#0077b6);
 padding:30px;
