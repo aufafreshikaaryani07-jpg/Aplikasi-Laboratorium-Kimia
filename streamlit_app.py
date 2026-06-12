@@ -372,8 +372,6 @@ elif menu == "Cek Stok Alat Laboratorium":
 elif menu == "Kalkulator Molaritas":
     st.header("KALKULATOR MOLARITAS")
     
-    st.sidebar.latex(r"M = \frac{n}{V}")
-
     mol = st.number_input("Masukkan jumlah mol (mol):", min_value=0.0)
     volume = st.number_input("Masukkan volume larutan (L):", min_value=0.0001)
     if st.button("Hitung Molaritas"):
@@ -388,8 +386,6 @@ elif menu == "Kalkulator Molaritas":
 elif menu == "Kalkulator Pengenceran":
     st.header("KALKULATOR PENGENCERAN")
     
-    st.sidebar.latex(r"M_1 \times V_1 = M_2 \times V_2")
-
     M1 = st.number_input("Masukkan M1 (M):", min_value=0.0)
     V1 = st.number_input("Masukkan V1 (mL):", min_value=0.0)
     M2 = st.number_input("Masukkan M2 (M):", min_value=0.0001)
@@ -516,16 +512,6 @@ elif menu == "Kalkulator Kadar":
 # =====================================================
 elif menu == "Kalkulator pH":
     st.header("KALKULATOR pH")
-    
-    # --- PERBAIKAN 6: Kata Pengertian diganti menjadi Kegunaan di Sidebar ---
-    st.sidebar.markdown("""
-    <div class="penjelasan-sidebar">
-        <strong>📚 Kegunaan:</strong><br>
-        Digunakan untuk mendeteksi derajat kekuatan keasaman zat senyawa cair berbasis aktivitas konsentrasi logaritma ion hidrogen.<br><br>
-        <strong>🧪 Rumus Kimia:</strong>
-    </div>
-    """, unsafe_allow_html=True)
-    st.sidebar.latex(r"\text{pH} = -\log_{10}[H^+]")
     
     # --- PERBAIKAN 6: Kata catatan fitur diganti menjadi catatan ---
     st.warning("""
