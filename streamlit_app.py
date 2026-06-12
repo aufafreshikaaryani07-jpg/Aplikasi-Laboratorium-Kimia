@@ -77,8 +77,6 @@ st.markdown("""
 st.divider()
 
 menu = st.sidebar.selectbox(
-st.sidebar.markdown("---")
-
 st.sidebar.markdown(
     f"""
     <div style="
