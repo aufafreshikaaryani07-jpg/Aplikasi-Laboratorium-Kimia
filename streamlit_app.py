@@ -404,7 +404,7 @@ elif menu == "Creator":
         try:
             st.image("foto kelompok.jpg.jpeg", use_container_width=True, caption="Tim Kelompok 12_1D Politeknik AKA Bogor")
         except:
-            st.error("File 'Foto Kelompok.jpg(2)' belum terdeteksi.")
+            st.error("File 'Foto Kelompok.jpg(2).jpeg' belum terdeteksi.")
         
     with col_data:
         st.markdown("""
