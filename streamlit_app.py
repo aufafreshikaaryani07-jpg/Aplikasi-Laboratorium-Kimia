@@ -143,7 +143,7 @@ alat_info = {
 # =====================================================
 # CEK ALAT
 # =====================================================
-    elif menu == "Cek Stok Alat Laboratorium":
+elif menu == "Cek Stok Alat Laboratorium":
 
     st.markdown("## 📦 CEK STOK ALAT LAB")
 
