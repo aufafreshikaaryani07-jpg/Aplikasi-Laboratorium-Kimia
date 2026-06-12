@@ -84,6 +84,8 @@ div[data-baseweb="select"] * {
 </style>  
 """, unsafe_allow_html=True)  
 
+    st.devider()
+
 # Menu Utama di Sidebar
 menu = st.sidebar.selectbox(
     "MENU UTAMA",
