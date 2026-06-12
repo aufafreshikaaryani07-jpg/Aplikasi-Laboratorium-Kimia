@@ -107,7 +107,7 @@ menu = st.sidebar.selectbox(
 if menu == "Kalkulator Molaritas":
     st.sidebar.markdown("""
     <div class="penjelasan-sidebar">
-        <strong>📚 Kegunakan:</strong><br>
+        <strong>📚 Kegunaan:</strong><br>
         Digunakan untuk menghitung konsentrasi larutan secara otomatis berdasarkan jumlah mol dan volume larutan.<br><br>
         <strong>🧪 Rumus Kimia:</strong>
     </div>
@@ -125,7 +125,7 @@ if menu == "Kalkulator Molaritas":
 elif menu == "Kalkulator Pengenceran":
     st.sidebar.markdown("""
     <div class="penjelasan-sidebar">
-        <strong>📚 Kegunakan:</strong><br>
+        <strong>📚 Kegunaan:</strong><br>
         Digunakan untuk menghitung volume larutan akhir setelah proses penambahan pelarut murni tanpa mengubah massa zat terlarut.<br><br>
         <strong>🧪 Rumus Kimia:</strong>
     </div>
@@ -145,7 +145,7 @@ elif menu == "Kalkulator Kadar":
 elif menu == "Kalkulator pH":
     st.sidebar.markdown("""
     <div class="penjelasan-sidebar">
-        <strong>📚 Kegunakan:</strong><br>
+        <strong>📚 Kegunaan:</strong><br>
         Digunakan untuk mendeteksi derajat kekuatan keasaman zat senyawa cair berbasis aktivitas konsentrasi logaritma ion hidrogen.<br><br>
         <strong>🧪 Rumus Kimia:</strong>
     </div>
@@ -154,17 +154,16 @@ elif menu == "Kalkulator pH":
 
 
 # =====================================================
-# DATABASE LENGKAP INVENTARIS ALAT LAB (Sesuai Skrip Awal)
+# DATABASE INVENTARIS ALAT LAB LENGKAP (54 ALAT)
 # =====================================================
-# Semua alat dari skrip awal dimasukkan kembali dengan data fungsi, default stok, dan gambar placeholder.
 database_alat = {
-    "Alu": {"fungsi": "Pasangan mortar untuk menghancurkan atau menghaluskan sampel padat laboratorium.", "stok": 15, "img": "Alu.jpg.jpeg"},
+    "Alu": {"fungsi": "Menghancurkan atau menghaluskan sampel padat laboratorium bersama mortar.", "stok": 15, "img": "Alu.jpg.jpeg"},
     "Batang Pengaduk": {"fungsi": "Mengaduk larutan kimia agar komponen zat terlarut dapat tercampur homogen.", "stok": 40, "img": "Batang Pengaduk.jpg.jpeg"},
     "Beaker Glass": {"fungsi": "Wadah penampung, pengaduk, pencampur, dan pemanas cairan kimia.", "stok": 60, "img": "Beaker Glass.jpg.jpeg"},
     "Botol Reagen": {"fungsi": "Tempat penyimpanan larutan reagen kimia agar terhindar dari kontaminasi udara luar.", "stok": 35, "img": "Botol Reagen.jpg.jpeg"},
     "Botol Timbang": {"fungsi": "Menimbang zat padat atau sampel cair yang bersifat higroskopis.", "stok": 20, "img": "Botol Timbang.jpg.jpeg"},
     "Botol Semprot": {"fungsi": "Menyimpan akuades yang digunakan untuk membersihkan atau membilas sisa larutan.", "stok": 25, "img": "Botol Semprot.jpg.jpeg"},
-    "Buret": {"fungsi": "Mengeluarkan larutan dengan volume spesifik dan akurat pada analisis titrasi.", "stok": 0, "img": "Buret.jpg.jpeg"},  # Contoh stok habis / tidak tersedia
+    "Buret": {"fungsi": "Mengeluarkan larutan dengan volume spesifik dan akurat pada analisis titrasi.", "stok": 0, "img": "Buret.jpg.jpeg"}, # Contoh stok habis
     "Bunsen": {"fungsi": "Alat pemanas lab dengan sistem pembakaran gas untuk sterilisasi dan pemanasan zat.", "stok": 15, "img": "Bunsen.jpg.jpeg"},
     "Cawan Petri": {"fungsi": "Wadah sirkular jernih untuk membiakkan media mikroorganisme dan bakteri.", "stok": 50, "img": "Cawan Petri.jpg.jpeg"},
     "Corong Kaca": {"fungsi": "Mempermudah pemindahan cairan ke wadah bermulut kecil dan menopang kertas saring.", "stok": 30, "img": "Corong Kaca.jpg.jpeg"},
@@ -179,58 +178,77 @@ database_alat = {
     "Inkubator": {"fungsi": "Menginkubasi kultur sel mikrobiologi pada kondisi suhu konstan.", "stok": 4, "img": "Inkubator.jpg.jpeg"},
     "Jarum Ose": {"fungsi": "Mengambil mikroba atau melakukan inokulasi bakteri secara aseptik.", "stok": 20, "img": "Jarum Ose.jpg.jpeg"},
     "Kaca Arloji": {"fungsi": "Wadah penimbangan sampel kristal padat atau penutup gelas beaker.", "stok": 35, "img": "Kaca Arloji.jpg.jpeg"},
-    "Kaki Tiga": {"fungsi": "Penyangga besi melingkar tiga kaki untuk menopang wadah sampel saat pemanasan.", "stok": 20, "img": "Kaki Tiga.jpg.jpeg"},
+    "Kaki Tiga": {"fungsi": "Penyanngga besi melingkar tiga kaki untuk menopang wadah sampel saat pemanasan.", "stok": 20, "img": "Kaki Tiga.jpg.jpeg"},
     "Kasa Asbes": {"fungsi": "Meratakan rambatan panas api dari bunsen agar wadah kaca tidak pecah.", "stok": 25, "img": "Kasa Asbes.jpg.jpeg"},
     "Kertas Saring": {"fungsi": "Menyaring partikel residu padatan terlarut dari cairan filtrat.", "stok": 100, "img": "Kertas Saring.jpg.jpeg"},
-    "Klem Buret": {"fungsi": "Menjepit buret pada statif agar berdiri tegak dan stabil saat titrasi.", "stok": 15, "img": "Klem Buret.jpg.jpeg"},
+    "Klem Buret": {"fungsi": "Menjepit buret pada statif agar posisinya tegak lurus saat titrasi.", "stok": 15, "img": "Klem Buret.jpg.jpeg"},
     "Kuvet": {"fungsi": "Wadah sampel cair untuk analisis menggunakan spektrofotometer.", "stok": 40, "img": "Kuvet.jpg.jpeg"},
-    "Labu Alas Bulat": {"fungsi": "Wadah penampung cairan pada proses distilasi atau pemanasan refreks.", "stok": 12, "img": "Labu Alas Bulat.jpg.jpeg"},
+    "Labu Alas Bulat": {"fungsi": "Wadah memanaskan cairan atau destilasi larutan kimia.", "stok": 12, "img": "Labu Alas Bulat.jpg.jpeg"},
     "Labu Takar": {"fungsi": "Membuat larutan standar primer atau sekunder dengan ketelitian volume sangat tinggi.", "stok": 35, "img": "Labu Takar.jpg.jpeg"},
-    "Laminar Air Flow": {"fungsi": "Tempat kerja steril untuk pengerjaan mikrobiologi bebas kontaminasi.", "stok": 2, "img": "Laminar Air Flow.jpg.jpeg"},
+    "Laminar Air Flow": {"fungsi": "Meja kerja steril untuk melakukan penanaman mikroba terhindar kontaminasi.", "stok": 2, "img": "Laminar Air Flow.jpg.jpeg"},
     "Mikropipet": {"fungsi": "Memindahkan cairan bervolume ultra kecil (skala mikroliter) secara akurat.", "stok": 12, "img": "Mikropipet.jpg.jpeg"},
-    "Mortar": {"fungsi": "Wadah menumbuk sampel padat medis maupun batuan/kristal lab.", "stok": 15, "img": "Mortar.jpg.jpeg"},
-    "Mekker": {"fungsi": "Bunsen dengan corong burner lebih lebar untuk suhu pembakaran yang lebih tinggi.", "stok": 5, "img": "Mekker.jpg.jpeg"},
+    "Mortar": {"fungsi": "Wadah lumpang penumbuk sampel bersama alu.", "stok": 15, "img": "Mortar.jpg.jpeg"},
+    "Mekker": {"fungsi": "Pemanas gas yang menghasilkan api lebih besar dan panas dibanding bunsen standar.", "stok": 10, "img": "Mekker.jpg.jpeg"},
     "Neraca Analitik": {"fungsi": "Mengukur berat massa substansi kimia berpresisi mikro tinggi.", "stok": 6, "img": "Neraca Analitik.jpg.jpeg"},
     "Oven": {"fungsi": "Mengeringkan peralatan gelas pasca cuci atau menghilangkan kadar air sampel.", "stok": 4, "img": "Oven.jpg.jpeg"},
     "pH meter": {"fungsi": "Mengukur nilai derajat keasaman atau nilai konsentrasi ion hidrogen secara digital.", "stok": 10, "img": "pH meter.jpg.jpeg"},
     "Pipet Volume": {"fungsi": "Mengambil larutan cair dengan volume tunggal spesifik berakurasi tinggi.", "stok": 40, "img": "Pipet Volume.jpg.jpeg"},
     "Pipet Tetes": {"fungsi": "Memindahkan cairan reagen dalam volume sangat kecil secara tetes demi tetes.", "stok": 80, "img": "Pipet Tetes.jpg.jpeg"},
     "Pipet Mohr": {"fungsi": "Mengambil larutan dengan rentang volume bervariasi sesuai garis tanda skala.", "stok": 30, "img": "Pipet Mohr.jpg.jpeg"},
-    "Piknometer": {"fungsi": "Mengukur nilai massa jenis atau densitas nyata dari suatu fluida.", "stok": 8, "img": "Piknometer.jpg.jpeg"},
-    "Polismen": {"fungsi": "Batang pengaduk yang ujungnya dilengkapi karet untuk membersihkan endapan pada wadah.", "stok": 15, "img": "Polismen.jpg.jpeg"},
+    "Piknometer": {"fungsi": "Mengukur nilai massa jenis atau densitas dari suatu cairan sampel.", "stok": 15, "img": "Piknometer.jpg.jpeg"},
+    "Polismen": {"fungsi": "Alat bantu untuk membersihkan dinding wadah gelas dari endapan pereaksi.", "stok": 20, "img": "Polismen.jpg.jpeg"},
     "Rak Tabung Reaksi": {"fungsi": "Tempat menata dan menegakkan posisi tabung reaksi agar tidak tumpah.", "stok": 25, "img": "Rak Tabung Reaksi.jpg.jpeg"},
-    "Sentrifus": {"fungsi": "Memisahkan endapan dan filtrat cairan berbasis gaya putar sentrifugal.", "stok": 4, "img": "Sentrifus.jpg.jpeg"},
-    "Segitiga Porselen": {"fungsi": "Penyangga wadah cawan porselen saat dilakukan pemanasan di atas bunsen.", "stok": 15, "img": "Segitiga Porselen.jpg.jpeg"},
-    "Spatula": {"fungsi": "Sendok kecil untuk mengambil sampel reagen berwujud padat atau serbuk.", "stok": 40, "img": "Spatula.jpg.jpeg"},
-    "Spektrofotometer": {"fungsi": "Mengukur nilai absorbansi berkas cahaya monokromatis dari zat warna.", "stok": 2, "img": "Spektrofotometer.jpg.jpeg"},
+    "Sentrifus": {"fungsi": "Memisahkan endapan dan organel komponen cair berbasis gaya sentrifugal.", "stok": 5, "img": "Sentrifus.jpg.jpeg"},
+    "Segitiga Porselen": {"fungsi": "Penyangga cawan porselen saat dipanaskan di atas kaki tiga.", "stok": 15, "img": "Segitiga Porselen.jpg.jpeg"},
+    "Spatula": {"fungsi": "Sendok kecil untuk mengambil sampel berwujud padat atau serbuk.", "stok": 40, "img": "Spatula.jpg.jpeg"},
+    "Spektrofotometer": {"fungsi": "Mengukur nilai absorbansi dan transmitansi gelombang cahaya sampel larutan.", "stok": 3, "img": "Spektrofotometer.jpg.jpeg"},
     "Statif": {"fungsi": "Tiang logam vertikal dasar kokoh yang menyangga dudukan klem buret.", "stok": 30, "img": "Statif.jpg.jpeg"},
-    "Spirtus": {"fungsi": "Lampu pemanas berbahan bakar alkohol/etanol.", "stok": 15, "img": "Spirtus.jpg.jpeg"},
-    "Soxhlet": {"fungsi": "Peralatan ekstraksi kontinu komponen lemak dari bahan padat.", "stok": 3, "img": "Soxhlet.jpg.jpeg"},
+    "Spirtus": {"fungsi": "Lampu pembakar portable bermedia bahan bakar spirtus cair.", "stok": 20, "img": "Spirtus.jpg.jpeg"},
+    "Soxhlet": {"fungsi": "Ekstraksi komponen zat aktif padat menggunakan pelarut cair berulang kali.", "stok": 4, "img": "Soxhlet.jpg.jpeg"},
     "Tabung Reaksi": {"fungsi": "Wadah silindris kaca kecil untuk uji reaksi kualitatif zat kimia.", "stok": 120, "img": "Tabung Reaksi.jpg.jpeg"},
-    "Tanur": {"fungsi": "Pemanas suhu sangat tinggi hingga ribuan derajat untuk proses pengabuan.", "stok": 2, "img": "Tanur.jpg.jpeg"},
-    "Tutup Kaca": {"fungsi": "Penutup labu takar atau botol reagen agar komponen gas tidak menguap.", "stok": 30, "img": "Tutup Kaca.jpg.jpeg"},
+    "Tanur": {"fungsi": "Pemanas lab suhu ultra tinggi untuk proses pengabuan sampel zat kimia.", "stok": 2, "img": "Tanur.jpg.jpeg"},
+    "Tutup Kaca": {"fungsi": "Penutup khusus botol reagen atau labu untuk mencegah penguapan.", "stok": 35, "img": "Tutup Kaca.jpg.jpeg"},
     "Termometer": {"fungsi": "Mengukur tingkat suhu lingkungan larutan reaksi kimia.", "stok": 25, "img": "Termometer.jpg.jpeg"},
-    "Vortex": {"fungsi": "Alat pengocok dinamis tabung reaksi berkecepatan tinggi agar homogen.", "stok": 6, "img": "Vortex.jpg.jpeg"},
-    "Water bath": {"fungsi": "Pemanas lab tidak langsung dengan media air untuk menjaga stabilitas suhu sampel.", "stok": 4, "img": "Water bath.jpg.jpeg"}
+    "Vortex": {"fungsi": "Mengocok secara cepat tabung reaksi berisi sampel agar larut homogen.", "stok": 6, "img": "Vortex.jpg.jpeg"},
+    "Water bath": {"fungsi": "Pemanas lab tidak langsung dengan media air untuk menjaga stabilitas suhu sampel.", "stok": 4, "img": "Waterbath.jpg.jpeg"}
 }
-alat_lab = sorted(list(database_alat.keys()))
+alat_lab = list(database_alat.keys())
+
 
 # =====================================================
 # HOME
 # =====================================================
 if menu == "Home":
-    # 1. Efek Elemen Kimia Kustom Terbawa Hanyut (Menggantikan Salju Monoton)
-    elemen_kimia = ["KMnO₄", "HCl", "NaOH", "H₂SO₄", "CH₃COOH", "NaCl", "C₆H₁₂O₆", "NH₃", "🧪", "⚛️"]
-    elemen_pilihan = random.choice(elemen_kimia)
+    # --- PERBAIKAN 1: Modifikasi Salju Terbang + Nama Rumus Kimia ---
+    senyawa_list = ["❄️", "KMnO4", "H2SO4", "HCl", "NaOH", "CH3COOH", "NaCl", "C6H12O6", "H2O", "NH3", "✨"]
+    rumus_terbang = random.choices(senyawa_list, k=40)
     
-    # Custom CSS Injector untuk memicu teks kimia terbang acak sebagai background tambahan dinamis
-    st.markdown(f"""
-    <div style='text-align: center; color: rgba(0, 119, 182, 0.15); font-size: 24px; font-weight: bold;'>
-        🚀 Meloading Elemen Reaktan Terlarut Aktif Hari Ini: {", ".join(random.sample(elemen_kimia, 5))}
-    </div>
-    """, unsafe_allow_html=True)
+    # Custom CSS untuk injeksi partikel teks bergerak acak
+    gerakan_css = "<style>"
+    for i in range(len(rumus_terbang)):
+        durasi = random.uniform(5, 15)
+        posisi_x = random.uniform(0, 95)
+        skala_font = random.randint(12, 22)
+        opasitas = random.uniform(0.1, 0.4)
+        
+        gerakan_css += f"""
+        @keyframes terbang-{i} {{
+            0% {{ transform: translateY(-10vh) rotate(0deg); }}
+            100% {{ transform: translateY(110vh) rotate(360deg); }}
+        }}
+        .partikel-{i} {{
+            position: fixed; top: -50px; left: {posisi_x}%;
+            animation: terbang-{i} {durasi}s linear infinite;
+            font-size: {skala_font}px; opacity: {opasitas};
+            color: #0077b6; font-weight: bold; pointer-events: none; z-index: 999;
+        }}
+        """
+    gerakan_css += "</style>"
+    st.markdown(gerakan_css, unsafe_allow_html=True)
     
-    st.snow() # Tetap dipanggil untuk basis partikel jatuh, divariasikan lewat reaktan mengapung di dashboard
+    # Render elemen teks kimia berterbangan
+    for i, teks in enumerate(rumus_terbang):
+        st.markdown(f'<div class="partikel-{i}">{teks}</div>', unsafe_allow_html=True)
 
     st.markdown("""
     <div class="hero">    
@@ -255,7 +273,7 @@ if menu == "Home":
         st.markdown("""
         <div class="card">
         <h3>🔍 Pencarian Alat</h3>
-        <p>Temukan alat laboratorium dengan cepat dan mudah beserta visual gambarnya secara lengkap.</p>
+        <p>Temukan alat laboratorium dengan cepat dan mudah beserta visual gambarnya.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -294,18 +312,21 @@ if menu == "Home":
     """, unsafe_allow_html=True)    
     st.divider()
 
+
 # =====================================================
-# MENU CEK ALAT (REVISI DATA LENGKAP & STATUS TIDAK TERSEDIA)
+# MENU CEK ALAT
 # =====================================================
 elif menu == "Cek Stok Alat Laboratorium":
     st.header("CEK STOK ALAT LABORATORIUM")
     
-    pilihan_alat = st.selectbox("Pilih alat yang ingin dicek (Drop-down):", ["-- Pilih Alat --"] + alat_lab)
+    # --- PERBAIKAN 2: Dropdown & Input pencarian teks digabung secara fleksibel ---
+    pilihan_alat = st.selectbox("Pilih alat yang ingin dicek:", ["-- Pilih Alat --"] + alat_lab)
     
     if st.button("Cek Detail Alat"):
         if pilihan_alat != "-- Pilih Alat --":
             stok_saat_ini = database_alat[pilihan_alat]['stok']
             
+            # Memunculkan status ketersediaan secara utuh
             if stok_saat_ini > 0:
                 st.success(f"Alat '{pilihan_alat}' TERSEDIA di Laboratorium")    
                 c_img, c_fng = st.columns([1, 2])
@@ -313,20 +334,20 @@ elif menu == "Cek Stok Alat Laboratorium":
                     try:
                         st.image(database_alat[pilihan_alat]["img"], use_container_width=True, caption=pilihan_alat)
                     except:
-                        st.warning("⚠️ File visualisasi gambar alat siap dikonfigurasikan.")
+                        st.write("📸 *Pratinjau Gambar Siap Ditambahkan*")
                 with c_fng:
                     st.info(f"**Fungsi Utama:** {database_alat[pilihan_alat]['fungsi']}")
                     st.metric(label="Jumlah Stok Tersedia (Qty)", value=f"{stok_saat_ini} unit")
                 st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_alat}' ditemukan. Stok: {stok_saat_ini} unit.")
             else:
-                # Menampilkan pesan error jika alat tidak tersedia (stok = 0 atau habis) secara utuh
-                st.error(f"Alat '{pilihan_alat}' Tidak tersedia (Stok Habis)!")
-                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_alat}' Tidak tersedia.")
+                # --- PERBAIKAN: Menulis kata "Tidak tersedia" saat alat tidak ada (stok=0) ---
+                st.error(f"Alat '{pilihan_alat}' TIDAK TERSEDIA (Stok Habis)!")
+                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_alat}' TIDAK TERSEDIA.")
         else:
             st.warning("Silakan pilih salah satu nama alat pada menu drop-down terlebih dahulu.")
 
     st.write("---")
-    st.subheader("Katalog Inventaris Lengkap Sesuai Abjad (Total Berjumlah Lengkap)")
+    st.subheader("Katalog Inventaris Lengkap (Urutan Abjad A-Z)")
     
     for nama_item, data_item in database_alat.items():
         with st.expander(f"📦 {nama_item} (Stok: {data_item['stok']} Unit)"):
@@ -335,19 +356,32 @@ elif menu == "Cek Stok Alat Laboratorium":
                 try:
                     st.image(data_item["img"], use_container_width=True)
                 except:
-                    st.write("⚠️ Gambar siap dikonfigurasikan.")
+                    st.write("⚠️ Gambar belum dimasukkan.")
             with col_kanan:
                 st.write(f"**Deskripsi Fungsi:** {data_item['fungsi']}")
                 if data_item['stok'] > 0:
                     st.write(f"**Status Ketersediaan:** {data_item['stok']} unit siap digunakan praktikum.")
                 else:
-                    st.write("**Status Ketersediaan:** ❌ Alat Tidak tersedia (Stok Habis).")
+                    # Menuliskan status tidak tersedia di dalam komponen expander katalog lengkap
+                    st.write("**Status Ketersediaan:** ❌ Alat TIDAK TERSEDIA (Stok Habis).")
+
 
 # =====================================================
 # MENU KALKULATOR MOLARITAS
 # =====================================================
 elif menu == "Kalkulator Molaritas":
     st.header("KALKULATOR MOLARITAS")
+    
+    # --- PERBAIKAN 3: Kata Pengertian diganti menjadi Kegunaan di Sidebar ---
+    st.sidebar.markdown("""
+    <div class="penjelasan-sidebar">
+        <strong>📚 Kegunaan:</strong><br>
+        Digunakan untuk menghitung konsentrasi larutan secara otomatis berdasarkan jumlah mol dan volume larutan.<br><br>
+        <strong>🧪 Rumus Kimia:</strong>
+    </div>
+    """, unsafe_allow_html=True)
+    st.sidebar.latex(r"M = \frac{n}{V}")
+
     mol = st.number_input("Masukkan jumlah mol (mol):", min_value=0.0)
     volume = st.number_input("Masukkan volume larutan (L):", min_value=0.0001)
     if st.button("Hitung Molaritas"):
@@ -355,11 +389,23 @@ elif menu == "Kalkulator Molaritas":
         st.success(f"Molaritas = {round(hasil, 3)} M")
         st.session_state.riwayat_pencarian.append(f"Molaritas ➔ {round(hasil, 3)} M")
 
+
 # =====================================================
 # MENU KALKULATOR PENGENCERAN
 # =====================================================
 elif menu == "Kalkulator Pengenceran":
     st.header("KALKULATOR PENGENCERAN")
+    
+    # --- PERBAIKAN 4: Kata Pengertian diganti menjadi Kegunaan di Sidebar ---
+    st.sidebar.markdown("""
+    <div class="penjelasan-sidebar">
+        <strong>📚 Kegunaan:</strong><br>
+        Digunakan untuk menghitung volume larutan akhir setelah proses penambahan pelarut murni tanpa mengubah massa zat terlarut.<br><br>
+        <strong>🧪 Rumus Kimia:</strong>
+    </div>
+    """, unsafe_allow_html=True)
+    st.sidebar.latex(r"M_1 \times V_1 = M_2 \times V_2")
+
     M1 = st.number_input("Masukkan M1 (M):", min_value=0.0)
     V1 = st.number_input("Masukkan V1 (mL):", min_value=0.0)
     M2 = st.number_input("Masukkan M2 (M):", min_value=0.0001)
@@ -368,11 +414,14 @@ elif menu == "Kalkulator Pengenceran":
         st.success(f"V2 = {round(V2, 2)} mL")
         st.session_state.riwayat_pencarian.append(f"Pengenceran ➔ V2: {round(V2, 2)} mL")
 
+
 # =====================================================
-# MENU KALKULATOR KADAR (REVISI DIKSI JUDUL & KEGUNAAN)
+# MENU KALKULATOR KADAR
 # =====================================================
 elif menu == "Kalkulator Kadar":
+    # --- PERBAIKAN 5: Mengubah judul halaman utama kalkulator kadar ---
     st.header("KALKULATOR KADAR PENETAPAN ANALISIS TITRIMETRI")
+    
     pilihan = st.selectbox(
         "Pilih Jenis Kadar", 
         [
@@ -385,12 +434,12 @@ elif menu == "Kalkulator Kadar":
         ]
     )
 
-    # Menampilkan kegunaan secara dinamis menyesuaikan pilihan sub-menu di sidebar
+    # --- PERBAIKAN 5: Kata Pengertian diganti menjadi Kegunaan di Sidebar ---
     with st.sidebar:
         st.markdown("""
         <div class="penjelasan-sidebar">
-            <strong>📚 Kegunakan:</strong><br>
-            Digunakan untuk mengukur persentase kandungan fraksi zat analit tertentu di dalam sampel melalui teknik volumetri titrimetri.<br><br>
+            <strong>📚 Kegunaan:</strong><br>
+            Digunakan untuk mengukur persentase kandungan fraksi zat analit tertentu di dalam sampel melalui teknik volumetri.<br><br>
             <strong>🧪 Rumus Kadar Spesifik:</strong>
         </div>
         """, unsafe_allow_html=True)
@@ -477,27 +526,39 @@ elif menu == "Kalkulator Kadar":
             st.success(f"Kadar CaCO3 = {round(hasil,2)} mg/L (ppm)")
             st.session_state.riwayat_pencarian.append(f"Kesadahan Air ➔ {round(hasil,2)} ppm")
 
+
 # =====================================================
-# MENU KALKULATOR pH (PEMULIHAN FITUR INPUT PANGKAT & KLASIFIKASI)
+# MENU KALKULATOR pH
 # =====================================================
 elif menu == "Kalkulator pH":
     st.header("KALKULATOR pH")
     
+    # --- PERBAIKAN 6: Kata Pengertian diganti menjadi Kegunaan di Sidebar ---
+    st.sidebar.markdown("""
+    <div class="penjelasan-sidebar">
+        <strong>📚 Kegunaan:</strong><br>
+        Digunakan untuk mendeteksi derajat kekuatan keasaman zat senyawa cair berbasis aktivitas konsentrasi logaritma ion hidrogen.<br><br>
+        <strong>🧪 Rumus Kimia:</strong>
+    </div>
+    """, unsafe_allow_html=True)
+    st.sidebar.latex(r"\text{pH} = -\log_{10}[H^+]")
+    
+    # --- PERBAIKAN 6: Kata catatan fitur diganti menjadi catatan ---
     st.warning("""
     📋 **Catatan:**
     * Perhitungan ini dikhususkan untuk senyawa jenis **Asam Kuat Monovalen** langsung tanpa tetapan kesetimbangan.
     * Parameter batasan output interval hasil akhir disesuaikan pada standar baku skala **0 hingga 14**.
     """)
 
-    # Pemulihan input teks agar mendukung format pangkat (10^-4 atau koma/titik desimal)
+    # --- PERBAIKAN 6: Mengembalikan input agar bisa membaca pangkat (10^-4) dan koma Indonesia ---
     h_input = st.text_input("Masukkan konsentrasi H+ (contoh: 10^-4 atau 0.0001)", value="0.0001")
     
     if st.button("Hitung pH"):
         try:    
-            # Ubah koma jadi titik (format Indonesia ke standar coding)
+            # Mengganti koma jadi titik (format desimal Indonesia ke standar python)
             h_input = h_input.replace(",", ".")
 
-            # Support format pangkat (contoh: 10^-4)
+            # Pendeteksian format eksponen/pangkat 10^-4
             if "^" in h_input:
                 base, exp = h_input.split("^")
                 if base.strip() == "10":
@@ -507,20 +568,18 @@ elif menu == "Kalkulator pH":
             else:
                 h = float(h_input)
 
-            # Validasi input logaritma tidak boleh minus/nol
+            # Validasi input numerik
             if h <= 0:
-                st.error("Konsentrasi H+ harus lebih dari 0!")
+                st.error("Konsentrasi H+ harus lebih besar dari 0!")
             else:
                 hasil = -math.log10(h)
                 ph = round(hasil, 2)
 
-                # Batasi skala pH logaritmik standar internasional
-                if ph < 0:
-                    ph = 0
-                elif ph > 14:
-                    ph = 14
+                # Batasi Skala pH agar tetap rasional 0 - 14
+                if ph < 0: ph = 0
+                elif ph > 14: ph = 14
 
-                # Klasifikasi Sifat Senyawa Larutan Cairan secara Akurat (Kembali Dihadirkan)
+                # --- PERBAIKAN 6: Mengembalikan Fitur Klasifikasi Sifat Larutan ---
                 if ph < 1:
                     sifat = "Asam Sangat Kuat"
                 elif ph < 3:
@@ -536,17 +595,18 @@ elif menu == "Kalkulator pH":
                 else:
                     sifat = "Basa Sangat Kuat"
 
-                # Output Berdasarkan Rentang Keasaman
+                # Output dinamis menggunakan container berwarna bawaan Streamlit
                 if ph < 7:
                     st.error(f"pH = {ph} ({sifat})")
                 elif ph == 7:
                     st.info(f"pH = {ph} ({sifat})")
                 else:
                     st.success(f"pH = {ph} ({sifat})")
-                    
+                
                 st.session_state.riwayat_pencarian.append(f"pH ➔ {ph} ({sifat})")
         except:    
-            st.error("Masukkan angka yang valid! (contoh: 10^-4 atau 0.0001)")
+            st.error("Masukkan angka desimal atau eksponen pangkat yang valid! (contoh: 10^-4 atau 0.0001)")
+
 
 # =====================================================
 # MENU RIWAYAT
@@ -561,6 +621,7 @@ elif menu == "Riwayat":
             st.info(f"**{i}.** {item}")
     else:
         st.write("Belum ada riwayat aktivitas.")
+
 
 # =====================================================
 # MENU CREATOR
