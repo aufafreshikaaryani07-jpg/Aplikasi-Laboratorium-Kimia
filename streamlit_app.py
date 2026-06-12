@@ -180,7 +180,7 @@ margin-top:20px;
 
 </div>
 """, unsafe_allow_html=True)
-    st.divider()
+st.divider()
 # =====================================================
 # DATABASE ALAT LAB
 # =====================================================
