@@ -77,21 +77,6 @@ st.markdown("""
 st.divider()
 
 menu = st.sidebar.selectbox(
-st.sidebar.markdown(
-    f"""
-    <div style="
-    background:white;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
-    font-weight:bold;
-    color:#023e8a;
-    ">
-    {menu}
-    </div>
-    """,
-    unsafe_allow_html=True
-)
     "MENU UTAMA",
     [
         "Home",
