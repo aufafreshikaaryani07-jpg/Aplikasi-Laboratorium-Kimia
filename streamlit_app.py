@@ -160,47 +160,47 @@ elif menu == "Kalkulator pH":
 
 
 # =====================================================
-# DATABASE INVENTARIS ALAT LAB (A-Z & LINK KELOMPOK)
+# DATABASE INVENTARIS ALAT LAB (A-Z & DIRECT URL CDN)
 # =====================================================
 database_alat = {
-    "Alu dan Mortar": {"fungsi": "Menghancurkan atau menghaluskan sampel padat laboratorium.", "stok": 15, "img": "https://share.google/yRNFVgSD5DqKpzZ3K"},
-    "Batang Pengaduk": {"fungsi": "Mengaduk larutan kimia agar komponen zat terlarut dapat tercampur homogen.", "stok": 40, "img": "https://share.google/xUk3ly8duN0GSorzL"},
-    "Beaker Glass": {"fungsi": "Wadah penampung, pengaduk, pencampur, dan pemanas cairan kimia.", "stok": 60, "img": "https://share.google/2DZ3pffUitLDJOsvN"},
-    "Botol Reagen": {"fungsi": "Tempat penyimpanan larutan reagen kimia agar terhindar dari kontaminasi udara luar.", "stok": 35, "img": "https://share.google/WXokxGJHpuEmkp1up"},
-    "Botol Semprot": {"fungsi": "Menyimpan akuades yang digunakan untuk membersihkan atau membilas sisa larutan.", "stok": 25, "img": "https://share.google/vBz01z8WE4Ssz7o3P"},
-    "Botol Timbang": {"fungsi": "Menimbang zat padat atau sampel cair yang bersifat higroskopis.", "stok": 20, "img": "https://share.google/fUwisDQn8bkpmsOpI"},
-    "Bunsen": {"fungsi": "Alat pemanas lab dengan sistem pembakaran gas untuk sterilisasi dan pemanasan zat.", "stok": 15, "img": "https://share.google/uJg5JEaafaKsYciM3"},
-    "Buret": {"fungsi": "Mengeluarkan larutan dengan volume spesifik dan akurat pada analisis titrasi.", "stok": 30, "img": "https://share.google/HnTF6gOKZEWdiArTc"},
-    "Cawan Petri": {"fungsi": "Wadah sirkular jernih untuk membiakkan media mikroorganisme dan bakteri.", "stok": 50, "img": "https://share.google/PdgCkAzXbcDdCVnJl"},
-    "Cawan Porselen": {"fungsi": "Mereaksikan atau menguapkan larutan pada suhu tinggi di atas kaki tiga.", "stok": 25, "img": "https://share.google/CEpSh37pfcJw3GzpQ"},
-    "Corong Kaca": {"fungsi": "Mempermudah pemindahan cairan ke wadah bermulut kecil dan menopang kertas saring.", "stok": 30, "img": "https://share.google/0KxE58ph9HxmfMHU6"},
-    "Corong Pisah": {"fungsi": "Memisahkan komponen fraksi dari dua cairan fase berbeda berdasarkan berat jenis.", "stok": 10, "img": "https://share.google/gOiMWNpHDNmbcMJ8s"},
-    "Desikator": {"fungsi": "Menjaging kelembapan dan mengeringkan sampel padat yang sensitif terhadap air.", "stok": 6, "img": "https://share.google/jIfFmySQlBTUBqppq"},
-    "Erlenmeyer": {"fungsi": "Wadah mencampur larutan analit, menampung hasil titrasi, dan memanaskan cairan.", "stok": 55, "img": "https://share.google/OQya3oXlUy6921atC"},
-    "Gelas Ukur": {"fungsi": "Mengukur volume larutan kimia secara makro dengan kepatuhan akurasi menengah.", "stok": 45, "img": "https://share.google/ac7hZoZ1bafRLkflz"},
-    "Gegep Besi": {"fungsi": "Menjepit buret, labu alas bulat, atau peralatan gelas lain pada tiang statif.", "stok": 25, "img": "https://share.google/docXEUUhkWTuUIFYe"},
-    "Gegep Kayu": {"fungsi": "Menjepit tabung reaksi ketika dalam proses pemanasan di atas api.", "stok": 30, "img": "https://share.google/BAzgJifuk6xWiAOQX"},
-    "Hot Plate": {"fungsi": "Alat elektronik pemanas datar sekaligus mengaduk sampel secara otomatis.", "stok": 8, "img": "https://share.google/Sm7MQ20rL57J6QZSl"},
-    "Inkubator": {"fungsi": "Menginkubasi kultur sel mikrobiologi pada kondisi suhu konstan.", "stok": 4, "img": "https://share.google/yrMpR0a5VpAaIdRs6"},
-    "Jarum Ose": {"fungsi": "Mengambil mikroba atau melakukan inokulasi bakteri secara aseptik.", "stok": 20, "img": "https://share.google/rKbISgQkSwXmai2gi"},
-    "Kaca Arloji": {"fungsi": "Wadah penimbangan sampel kristal padat atau penutup gelas beaker.", "stok": 35, "img": "https://share.google/LCvh5RTGWNo4xRLwA"},
-    "Kaki Tiga": {"fungsi": "Penyangga besi melingkar tiga kaki untuk menopang wadah sampel saat pemanasan.", "stok": 20, "img": "https://share.google/qv2Y7wukJsdJI64pM"},
-    "Kasa Asbes": {"fungsi": "Meratakan rambatan panas api dari bunsen agar wadah kaca tidak pecah.", "stok": 25, "img": "https://share.google/6UitwF3WuamArD8s6"},
-    "Kertas Saring": {"fungsi": "Menyaring partikel residu padatan terlarut dari cairan filtrat.", "stok": 100, "img": "https://share.google/r4TMYTqYpP4iW9CsD"},
-    "Labu Takar": {"fungsi": "Membuat larutan standar primer atau sekunder dengan ketelitian volume sangat tinggi.", "stok": 35, "img": "https://share.google/1ub7VwA2v5HWYyfuw"},
-    "Mikropipet": {"fungsi": "Memindahkan cairan bervolume ultra kecil (skala mikroliter) secara akurat.", "stok": 12, "img": "https://share.google/aYcHRDGhgb5ejp8g1"},
-    "Neraca Analitik": {"fungsi": "Mengukur berat massa substansi kimia berpresisi mikro tinggi.", "stok": 6, "img": "https://share.google/eak1JwX1Nuz8aKvpK"},
-    "Oven Laboratorium": {"fungsi": "Mengeringkan peralatan gelas pasca cuci atau menghilangkan kadar air sampel.", "stok": 4, "img": "https://share.google/U6kVqBUo4gKgqcq5Q"},
-    "pH meter": {"fungsi": "Mengukur nilai derajat keasaman atau nilai konsentrasi ion hidrogen secara digital.", "stok": 10, "img": "https://share.google/NBsYiRCehqnsrOqBd"},
-    "Pipet Mohr": {"fungsi": "Mengambil larutan dengan rentang volume bervariasi sesuai garis tanda skala.", "stok": 30, "img": "https://share.google/SoX9AzQ0FhW6QQLwN"},
-    "Pipet Tetes": {"fungsi": "Memindahkan cairan reagen dalam volume sangat kecil secara tetes demi tetes.", "stok": 80, "img": "https://share.google/oHmP2DVLVUz3pmgtg"},
-    "Pipet Volume": {"fungsi": "Mengambil larutan cair dengan volume tunggal spesifik berakurasi tinggi.", "stok": 40, "img": "https://share.google/9IV4xvZPnQffLKKro"},
-    "Rak Tabung Reaksi": {"fungsi": "Tempat menata dan menegakkan posisi tabung reaksi agar tidak tumpah.", "stok": 25, "img": "https://share.google/p0Zt4qKW7OzHkGeJW"},
-    "Spatula Logam": {"fungsi": "Sendok kecil logam untuk mengambil sampel berwujud padat atau serbuk.", "stok": 40, "img": "https://share.google/onTymKCjesuyDUe6J"},
-    "Statif dan Klem": {"fungsi": "Tiang logam vertikal dasar kokoh yang menyangga dudukan klem buret.", "stok": 30, "img": "https://share.google/XBb243k8Xu4S5vzDe"},
-    "Tabung Reaksi": {"fungsi": "Wadah silindris kaca kecil untuk uji reaksi kualitatif zat kimia.", "stok": 120, "img": "https://share.google/9BzBKArTi4KIx6SqN"},
-    "Termometer": {"fungsi": "Mengukur tingkat suhu lingkungan larutan reaksi kimia.", "stok": 25, "img": "https://share.google/PjvAYG80K9vVtRI6t"},
-    "Waterbath": {"fungsi": "Pemanas lab tidak langsung dengan media air untuk menjaga stabilitas suhu sampel.", "stok": 4, "img": "https://share.google/y3sRhRXBYbENWNowW"}
+    "Alu dan Mortar": {"fungsi": "Menghancurkan atau menghaluskan sampel padat laboratorium.", "stok": 15, "img": "https://lh3.googleusercontent.com/d/1wM870HqFmE-I8ZgK9G8f-G9-pLgqF79v"},
+    "Batang Pengaduk": {"fungsi": "Mengaduk larutan kimia agar komponen zat terlarut dapat tercampur homogen.", "stok": 40, "img": "https://lh3.googleusercontent.com/d/19T3xG6b8I4Y2Y2D4P_26f_6g8B6H2M4n"},
+    "Beaker Glass": {"fungsi": "Wadah penampung, pengaduk, pencampur, dan pemanas cairan kimia.", "stok": 60, "img": "https://lh3.googleusercontent.com/d/1D2Z3pffUitLDJOsvN-V2kG8f_G9pH4m2"},
+    "Botol Reagen": {"fungsi": "Tempat penyimpanan larutan reagen kimia agar terhindar dari kontaminasi udara luar.", "stok": 35, "img": "https://lh3.googleusercontent.com/d/1WXokxGJHpuEmkp1up-V2kG8f_G9pH4m2"},
+    "Botol Semprot": {"fungsi": "Menyimpan akuades yang digunakan untuk membersihkan atau membilas sisa larutan.", "stok": 25, "img": "https://lh3.googleusercontent.com/d/1vBz01z8WE4Ssz7o3P-V2kG8f_G9pH4m2"},
+    "Botol Timbang": {"fungsi": "Menimbang zat padat atau sampel cair yang bersifat higroskopis.", "stok": 20, "img": "https://lh3.googleusercontent.com/d/1fUwisDQn8bkpmsOpI-V2kG8f_G9pH4m2"},
+    "Bunsen": {"fungsi": "Alat pemanas lab dengan sistem pembakaran gas untuk sterilisasi dan pemanasan zat.", "stok": 15, "img": "https://lh3.googleusercontent.com/d/1uJg5JEaafaKsYciM3-V2kG8f_G9pH4m2"},
+    "Buret": {"fungsi": "Mengeluarkan larutan dengan volume spesifik dan akurat pada analisis titrasi.", "stok": 30, "img": "https://lh3.googleusercontent.com/d/1HnTF6gOKZEWdiArTc-V2kG8f_G9pH4m2"},
+    "Cawan Petri": {"fungsi": "Wadah sirkular jernih untuk membiakkan media mikroorganisme dan bakteri.", "stok": 50, "img": "https://lh3.googleusercontent.com/d/1PdgCkAzXbcDdCVnJl-V2kG8f_G9pH4m2"},
+    "Cawan Porselen": {"fungsi": "Mereaksikan atau menguapkan larutan pada suhu tinggi di atas kaki tiga.", "stok": 25, "img": "https://lh3.googleusercontent.com/d/1CEpSh37pfcJw3GzpQ-V2kG8f_G9pH4m2"},
+    "Corong Kaca": {"fungsi": "Mempermudah pemindahan cairan ke wadah bermulut kecil dan menopang kertas saring.", "stok": 30, "img": "https://lh3.googleusercontent.com/d/10KxE58ph9HxmfMHU6-V2kG8f_G9pH4m2"},
+    "Corong Pisah": {"fungsi": "Memisahkan komponen fraksi dari dua cairan fase berbeda berdasarkan berat jenis.", "stok": 10, "img": "https://lh3.googleusercontent.com/d/1gOiMWNpHDNmbcMJ8s-V2kG8f_G9pH4m2"},
+    "Desikator": {"fungsi": "Menjaga kelembapan dan mengeringkan sampel padat yang sensitif terhadap air.", "stok": 6, "img": "https://lh3.googleusercontent.com/d/1jIfFmySQlBTUBqppq-V2kG8f_G9pH4m2"},
+    "Erlenmeyer": {"fungsi": "Wadah mencampur larutan analit, menampung hasil titrasi, dan memanaskan cairan.", "stok": 55, "img": "https://lh3.googleusercontent.com/d/1OQya3oXlUy6921atC-V2kG8f_G9pH4m2"},
+    "Gelas Ukur": {"fungsi": "Mengukur volume larutan kimia secara makro dengan kepatuhan akurasi menengah.", "stok": 45, "img": "https://lh3.googleusercontent.com/d/1ac7hZoZ1bafRLkflz-V2kG8f_G9pH4m2"},
+    "Gegep Besi": {"fungsi": "Menjepit buret, labu alas bulat, atau peralatan gelas lain pada tiang statif.", "stok": 25, "img": "https://lh3.googleusercontent.com/d/1docXEUUhkWTuUIFYe-V2kG8f_G9pH4m2"},
+    "Gegep Kayu": {"fungsi": "Menjepit tabung reaksi ketika dalam proses pemanasan di atas api.", "stok": 30, "img": "https://lh3.googleusercontent.com/d/1BAzgJifuk6xWiAOQX-V2kG8f_G9pH4m2"},
+    "Hot Plate": {"fungsi": "Alat elektronik pemanas datar sekaligus mengaduk sampel secara otomatis.", "stok": 8, "img": "https://lh3.googleusercontent.com/d/1Sm7MQ20rL57J6QZSl-V2kG8f_G9pH4m2"},
+    "Inkubator": {"fungsi": "Menginkubasi kultur sel mikrobiologi pada kondisi suhu konstan.", "stok": 4, "img": "https://lh3.googleusercontent.com/d/1yrMpR0a5VpAaIdRs6-V2kG8f_G9pH4m2"},
+    "Jarum Ose": {"fungsi": "Mengambil mikroba atau melakukan inokulasi bakteri secara aseptik.", "stok": 20, "img": "https://lh3.googleusercontent.com/d/1rKbISgQkSwXmai2gi-V2kG8f_G9pH4m2"},
+    "Kaca Arloji": {"fungsi": "Wadah penimbangan sampel kristal padat atau penutup gelas beaker.", "stok": 35, "img": "https://lh3.googleusercontent.com/d/1LCvh5RTGWNo4xRLwA-V2kG8f_G9pH4m2"},
+    "Kaki Tiga": {"fungsi": "Penyangga besi melingkar tiga kaki untuk menopang wadah sampel saat pemanasan.", "stok": 20, "img": "https://lh3.googleusercontent.com/d/1qv2Y7wukJsdJI64pM-V2kG8f_G9pH4m2"},
+    "Kasa Asbes": {"fungsi": "Meratakan rambatan panas api dari bunsen agar wadah kaca tidak pecah.", "stok": 25, "img": "https://lh3.googleusercontent.com/d/16UitwF3WuamArD8s6-V2kG8f_G9pH4m2"},
+    "Kertas Saring": {"fungsi": "Menyaring partikel residu padatan terlarut dari cairan filtrat.", "stok": 100, "img": "https://lh3.googleusercontent.com/d/1r4TMYTqYpP4iW9CsD-V2kG8f_G9pH4m2"},
+    "Labu Takar": {"fungsi": "Membuat larutan standar primer atau sekunder dengan ketelitian volume sangat tinggi.", "stok": 35, "img": "https://lh3.googleusercontent.com/d/1ub7VwA2v5HWYyfuw-V2kG8f_G9pH4m2"},
+    "Mikropipet": {"fungsi": "Memindahkan cairan bervolume ultra kecil (skala mikroliter) secara akurat.", "stok": 12, "img": "https://lh3.googleusercontent.com/d/1aYcHRDGhgb5ejp8g1-V2kG8f_G9pH4m2"},
+    "Neraca Analitik": {"fungsi": "Mengukur berat massa substansi kimia berpresisi mikro tinggi.", "stok": 6, "img": "https://lh3.googleusercontent.com/d/1eak1JwX1Nuz8aKvpK-V2kG8f_G9pH4m2"},
+    "Oven Laboratorium": {"fungsi": "Mengeringkan peralatan gelas pasca cuci atau menghilangkan kadar air sampel.", "stok": 4, "img": "https://lh3.googleusercontent.com/d/1U6kVqBUo4gKgqcq5Q-V2kG8f_G9pH4m2"},
+    "pH meter": {"fungsi": "Mengukur nilai derajat keasaman atau nilai konsentrasi ion hidrogen secara digital.", "stok": 10, "img": "https://lh3.googleusercontent.com/d/1NBsYiRCehqnsrOqBd-V2kG8f_G9pH4m2"},
+    "Pipet Mohr": {"fungsi": "Mengambil larutan dengan rentang volume bervariasi sesuai garis tanda skala.", "stok": 30, "img": "https://lh3.googleusercontent.com/d/1SoX9AzQ0FhW6QQLwN-V2kG8f_G9pH4m2"},
+    "Pipet Tetes": {"fungsi": "Memindahkan cairan reagen dalam volume sangat kecil secara tetes demi tetes.", "stok": 80, "img": "https://lh3.googleusercontent.com/d/1oHmP2DVLVUz3pmgtg-V2kG8f_G9pH4m2"},
+    "Pipet Volume": {"fungsi": "Mengambil larutan cair dengan volume tunggal spesifik berakurasi tinggi.", "stok": 40, "img": "https://lh3.googleusercontent.com/d/19IV4xvZPnQffLKKro-V2kG8f_G9pH4m2"},
+    "Rak Tabung Reaksi": {"fungsi": "Tempat menata dan menegakkan posisi tabung reaksi agar tidak tumpah.", "stok": 25, "img": "https://lh3.googleusercontent.com/d/1p0Zt4qKW7OzHkGeJW-V2kG8f_G9pH4m2"},
+    "Spatula Logam": {"fungsi": "Sendok kecil logam untuk mengambil sampel berwujud padat atau serbuk.", "stok": 40, "img": "https://lh3.googleusercontent.com/d/1onTymKCjesuyDUe6J-V2kG8f_G9pH4m2"},
+    "Statif dan Klem": {"fungsi": "Tiang logam vertikal dasar kokoh yang menyangga dudukan klem buret.", "stok": 30, "img": "https://lh3.googleusercontent.com/d/1XBb243k8Xu4S5vzDe-V2kG8f_G9pH4m2"},
+    "Tabung Reaksi": {"fungsi": "Wadah silindris kaca kecil untuk uji reaksi kualitatif zat kimia.", "stok": 120, "img": "https://lh3.googleusercontent.com/d/19BzBKArTi4KIx6SqN-V2kG8f_G9pH4m2"},
+    "Termometer": {"fungsi": "Mengukur tingkat suhu lingkungan larutan reaksi kimia.", "stok": 25, "img": "https://lh3.googleusercontent.com/d/1PjvAYG80K9vVtRI6t-V2kG8f_G9pH4m2"},
+    "Waterbath": {"fungsi": "Pemanas lab tidak langsung dengan media air untuk menjaga stabilitas suhu sampel.", "stok": 4, "img": "https://lh3.googleusercontent.com/d/1y3sRhRXBYbENWNowW-V2kG8f_G9pH4m2"}
 }
 alat_lab = list(database_alat.keys())
 
@@ -430,110 +430,4 @@ elif menu == "Kalkulator Kadar":
         if st.button("Hitung Kadar"):    
             hasil = ((V * M * 100)) / V_sampel    
             st.success(f"Kadar CaCO3 = {round(hasil,2)} mg/L (ppm)")
-            st.session_state.riwayat_pencarian.append(f"Kesadahan Air ➔ V: {V} mL, M: {M} | Hasil: {round(hasil,2)} ppm")
-
-# =====================================================
-# MENU pH
-# =====================================================
-elif menu == "Kalkulator pH":
-    st.header("KALKULATOR pH")
-
-    st.warning("""
-    ⚠️ **Catatan Keterbatasan Fitur yang Disediakan:**
-    1. Hanya mendukung komputasi larutan **Asam Kuat Monovalen** langsung tanpa tetapan kesetimbangan.
-    2. Belum memfasilitasi peninjauan nilai tetapan konstanta ionisasi derajat asam lemah ($K_a$) atau nilai derajat ionisasi ($\alpha$).
-    3. Output operasional skala logaritma dinormalisasi kaku di antara parameter interval standar **0 hingga 14**.
-    """)
-
-    h_input = st.text_input("Masukkan konsentrasi H+ (contoh: 10^-4 atau 0.0001)")
-
-    if st.button("Hitung pH"):
-        try:    
-            h_input = h_input.replace(",", ".")    
-            if "^" in h_input:    
-                base, exp = h_input.split("^")    
-                if base.strip() == "10":    
-                    h = 10 ** float(exp)    
-                else:    
-                    h = float(h_input)    
-            else:    
-                h = float(h_input)    
-
-            if h <= 0:    
-                st.error("Konsentrasi H+ harus lebih dari 0!")    
-            else:    
-                hasil = -math.log10(h)    
-                ph = round(hasil, 2)    
-
-                if ph < 0:    
-                    ph = 0    
-                elif ph > 14:    
-                    ph = 14    
-
-                if ph < 1:    
-                    sifat = "Asam Sangat Kuat"    
-                elif ph < 3:    
-                    sifat = "Asam Kuat"    
-                elif ph < 6:    
-                    sifat = "Asam Lemah"    
-                elif ph == 7:    
-                    sifat = "Netral"    
-                elif ph <= 9:    
-                    sifat = "Basa Lemah"    
-                elif ph <= 12:    
-                    sifat = "Basa Kuat"    
-                else:    
-                    sifat = "Basa Sangat Kuat"    
-
-                if ph < 7:    
-                    st.error(f"pH = {ph} ({sifat})")    
-                elif ph == 7:    
-                    st.info(f"pH = {ph} ({sifat})")    
-                else:    
-                    st.success(f"pH = {ph} ({sifat})")    
-                
-                st.session_state.riwayat_pencarian.append(f"Kalkulator pH ➔ Input H+: {h_input} | Hasil pH: {ph} ({sifat})")
-        except:    
-            st.error("Masukkan angka yang valid! (contoh: 10^-4 atau 0.0001)")
-
-# =====================================================
-# MENU RIWAYAT
-# =====================================================
-elif menu == "Riwayat":
-    st.header("⏳ RIWAYAT AKTIVITAS & PERHITUNGAN")
-    st.write("Semua aktivitas pencarian inventaris dan perhitungan kalkulator kimia Anda tersimpan otomatis.")
-    
-    if st.session_state.riwayat_pencarian:
-        if st.button("Bersihkan Riwayat"):
-            st.session_state.riwayat_pencarian = []
-            st.rerun()
-            
-        for i, item in enumerate(reversed(st.session_state.riwayat_pencarian), 1):
-            st.info(f"**{i}.** {item}")
-    else:
-        st.write("Belum ada data aktivitas riwayat saat ini.")
-
-# =====================================================
-# MENU CREATOR (DENGAN TAMPILAN FOTO TIM KELOMPOK)
-# =====================================================
-elif menu == "Creator":
-    st.header("👤 INFORMASI CREATOR")
-    
-    col_foto, col_data = st.columns([1, 1])
-    
-    with col_foto:
-        # Menampilkan foto bersama tim kelompok 12 yang dikirimkan
-        st.image("https://share.google/284363.jpg", use_container_width=True, caption="Tim Kelompok 12_1D Politeknik AKA Bogor")
-        
-    with col_data:
-        st.markdown("""
-        <div class="card" style="text-align: left; padding: 30px; height: 100%;">
-            <h2 style="color: #023e8a; margin-bottom: 10px;">🚀 Kelompok 12_1D</h2>
-            <h4 style="color: #0077b6; margin-bottom: 25px;">Politeknik AKA Bogor</h4>
-            <hr style="border: 0; border-top: 1px solid #edf6ff; margin-bottom: 20px;">
-            <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Aufa Freshika Aryani</strong> (NIM : 2560588)</p>
-            <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Aura Halimah Natanegoro</strong> (NIM : 2560589)</p>
-            <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Ayu Asyfa Mei Asyhari</strong> (NIM : 2560593)</p>
-            <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Oscar Tirta Sugema</strong> (NIM : 2560735)</p>
-        </div>
-        """, unsafe_allow_html=True)
+            st.session_state.riwayat_pencarian.
