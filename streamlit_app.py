@@ -84,8 +84,6 @@ div[data-baseweb="select"] * {
 </style>  
 """, unsafe_allow_html=True)  
 
-st.divider()
-
 # Menu Utama di Sidebar
 menu = st.sidebar.selectbox(
     "MENU UTAMA",
@@ -609,8 +607,7 @@ elif menu == "Creator":
     with col_data:
         st.markdown("""
         <div class="card" style="text-align: left; padding: 30px; height: 100%;">
-            <h2 style="color: #023e8a; margin-bottom: 10px;">🚀 Kelompok 12_1D</h2>
-            <h4 style="color: #0077b6; margin-bottom: 25px;">Politeknik AKA Bogor</h4>
+            <h2 style="color: #023e8a; margin-bottom: 10px;">🚀 Anggota Kelompok</h2>
             <hr style="border: 0; border-top: 1px solid #edf6ff; margin-bottom: 20px;">
             <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Aufa Freshika Aryani</strong> (NIM : 2560588)</p>
             <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Aura Halimah Natanegoro</strong> (NIM : 2560589)</p>
