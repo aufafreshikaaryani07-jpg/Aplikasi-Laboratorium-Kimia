@@ -372,14 +372,6 @@ elif menu == "Cek Stok Alat Laboratorium":
 elif menu == "Kalkulator Molaritas":
     st.header("KALKULATOR MOLARITAS")
     
-    # --- PERBAIKAN 3: Kata Pengertian diganti menjadi Kegunaan di Sidebar ---
-    st.sidebar.markdown("""
-    <div class="penjelasan-sidebar">
-        <strong>📚 Kegunaan:</strong><br>
-        Digunakan untuk menghitung konsentrasi larutan secara otomatis berdasarkan jumlah mol dan volume larutan.<br><br>
-        <strong>🧪 Rumus Kimia:</strong>
-    </div>
-    """, unsafe_allow_html=True)
     st.sidebar.latex(r"M = \frac{n}{V}")
 
     mol = st.number_input("Masukkan jumlah mol (mol):", min_value=0.0)
@@ -396,14 +388,6 @@ elif menu == "Kalkulator Molaritas":
 elif menu == "Kalkulator Pengenceran":
     st.header("KALKULATOR PENGENCERAN")
     
-    # --- PERBAIKAN 4: Kata Pengertian diganti menjadi Kegunaan di Sidebar ---
-    st.sidebar.markdown("""
-    <div class="penjelasan-sidebar">
-        <strong>📚 Kegunaan:</strong><br>
-        Digunakan untuk menghitung volume larutan akhir setelah proses penambahan pelarut murni tanpa mengubah massa zat terlarut.<br><br>
-        <strong>🧪 Rumus Kimia:</strong>
-    </div>
-    """, unsafe_allow_html=True)
     st.sidebar.latex(r"M_1 \times V_1 = M_2 \times V_2")
 
     M1 = st.number_input("Masukkan M1 (M):", min_value=0.0)
@@ -439,7 +423,7 @@ elif menu == "Kalkulator Kadar":
         st.markdown("""
         <div class="penjelasan-sidebar">
             <strong>📚 Kegunaan:</strong><br>
-            Digunakan untuk mengukur persentase kandungan fraksi zat analit tertentu di dalam sampel melalui teknik volumetri.<br><br>
+            Digunakan untuk mengukur persentase kandungan fraksi zat analit tertentu di dalam sampel melalui teknik titrimetri.<br><br>
             <strong>🧪 Rumus Kadar Spesifik:</strong>
         </div>
         """, unsafe_allow_html=True)
@@ -632,7 +616,7 @@ elif menu == "Creator":
     
     with col_foto:
         try:
-            st.image("Foto Kelompok.jpg (2).jpeg", use_container_width=True, caption="Tim Kelompok 12_1D Politeknik AKA Bogor")
+            st.image("Foto Kelompok.jpg (2).jpeg", use_container_width=True, caption="Kelompok 12_1D Politeknik AKA Bogor")
         except:
             st.error("File 'Foto Kelompok.jpg (2).jpeg' belum terdeteksi.")
         
