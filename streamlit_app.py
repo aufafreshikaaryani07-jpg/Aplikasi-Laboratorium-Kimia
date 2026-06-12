@@ -13,6 +13,33 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+.floating{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:999;
+overflow:hidden;
+}
+
+.chem{
+position:absolute;
+color:rgba(0,119,182,0.25);
+font-size:28px;
+font-weight:bold;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px) rotate(0deg);
+}
+100%{
+transform:translateY(120vh) rotate(360deg);
+}
+}
 
 .main{
     background: linear-gradient(135deg,#f8fbff,#edf6ff);
@@ -94,6 +121,21 @@ menu = st.sidebar.selectbox(
 # =====================================================
 
 if menu == "Home":
+    st.markdown("""
+<div class="floating">
+
+<div class="chem" style="left:5%;animation-duration:12s;">H₂O</div>
+<div class="chem" style="left:15%;animation-duration:15s;">NaCl</div>
+<div class="chem" style="left:25%;animation-duration:18s;">H₂SO₄</div>
+<div class="chem" style="left:35%;animation-duration:13s;">CH₃COOH</div>
+<div class="chem" style="left:45%;animation-duration:20s;">NaOH</div>
+<div class="chem" style="left:55%;animation-duration:16s;">FeCl₃</div>
+<div class="chem" style="left:65%;animation-duration:14s;">NH₃</div>
+<div class="chem" style="left:75%;animation-duration:17s;">KMnO₄</div>
+<div class="chem" style="left:85%;animation-duration:12s;">AgNO₃</div>
+
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("""
     <div class="hero">
@@ -159,7 +201,24 @@ if menu == "Home":
 # DATABASE ALAT LAB
 # =====================================================
 
-alat_lab = [
+st.subheader("Informasi Alat Laboratorium")
+
+alat_pilih = st.selectbox(
+    "Pilih Alat",
+    list(detail_alat.keys())
+)
+
+if alat_pilih:
+
+    st.image(
+        detail_alat[alat_pilih]["gambar"],
+        width=300
+    )
+
+    st.info(
+        detail_alat[alat_pilih]["kegunaan"]
+    )
+    alat_lab = [
 
     "Alu",
     "Batang Pengaduk",
@@ -222,6 +281,33 @@ alat_lab = [
 # MENU CEK ALAT
 # =====================================================
 
+detail_alat = {
+
+"Beaker Glass":{
+"gambar":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Beaker.jpg/320px-Beaker.jpg",
+"kegunaan":"Menampung, mencampur dan memanaskan larutan."
+},
+
+"Erlenmeyer":{
+"gambar":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Erlenmeyer_flask.jpg/320px-Erlenmeyer_flask.jpg",
+"kegunaan":"Wadah titrasi dan pencampuran larutan."
+},
+
+"Buret":{
+"gambar":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Burette.jpg/320px-Burette.jpg",
+"kegunaan":"Mengeluarkan larutan secara presisi saat titrasi."
+},
+
+"Labu Takar":{
+"gambar":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Volumetric_flask.jpg/320px-Volumetric_flask.jpg",
+"kegunaan":"Membuat larutan dengan volume tepat."
+},
+
+"pH meter":{
+"gambar":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/PH_meter.jpg/320px-PH_meter.jpg",
+"kegunaan":"Mengukur derajat keasaman atau kebasaan."
+}
+}
 if menu == "Cek Stok Alat Laboratorium":
 
     st.header("CEK STOK ALAT LABORATORIUM")
