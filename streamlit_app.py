@@ -3,10 +3,10 @@ import math
 import random
 
 # =====================================================
-# SMART LAB CHEMISTRY LANDING PAGE & CONFIG
+# MOLEVIA LANDING PAGE & CONFIG
 # =====================================================
 st.set_page_config(
-    page_title="Smart Lab Chemistry",
+    page_title="Molevia",
     page_icon="🧪",
     layout="wide"
 )
