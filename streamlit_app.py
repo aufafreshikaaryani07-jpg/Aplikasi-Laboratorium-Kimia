@@ -152,7 +152,7 @@ elif menu == "Kalkulator pH":
 
 
 # =====================================================
-# DATABASE INVENTARIS ALAT LAB LENGKAP (DENGAN TAMBAHAN & SUB-SPEKTROFOTOMETER)
+# DATABASE INVENTARIS ALAT LAB LENGKAP
 # =====================================================
 database_alat = {
     "Alu": {"fungsi": "Menghancurkan atau menghaluskan sampel padat laboratorium bersama mortar.", "stok": 15, "img": "Alu.jpg.jpeg"},
@@ -264,7 +264,7 @@ if menu == "Home":
     <h3>The Pathway Through Chemistry</h3>    
     <p>    
     Molevia hadir sebagai platform laboratorium digital yang mengintegrasikan perhitungan kimia    
-    dan manajemen inventaris dalam satu application yang sederhana, cepat, dan akurat.    
+    dan manajemen inventaris dalam satu aplikasi yang sederhana, cepat, dan akurat.    
     </p>    
     </div>    
     """, unsafe_allow_html=True)    
@@ -431,33 +431,35 @@ elif menu == "Kalkulator Kadar":
         """, unsafe_allow_html=True)
         
         if pilihan == "Kadar Asam Asetat":
-            st.sidebar.latex(r"\% \text{Kadar} = \frac{V \times N \times 60 \times 10^{-3} \times FP \times 100}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Kadar} = \frac{V \times N \times \text{BE}_{\text{Asam Asetat}} \times 10^{-3} \times FP \times 100}{V_{\text{sampel}}}")
         elif pilihan == "NaOH dan Na2CO3 (Warder)":
-            st.sidebar.latex(r"\% \text{Na}_2\text{CO}_3 = \frac{2 \times (b - a) \times N \times 53 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
-            st.sidebar.latex(r"\% \text{NaOH} = \frac{(2a - b) \times N \times 40 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Na}_2\text{CO}_3 = \frac{2 \times (b - a) \times N \times \text{BE}_{\text{Na}_2\text{CO}_3} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{NaOH} = \frac{(2a - b) \times N \times \text{BE}_{\text{NaOH}} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
         elif pilihan == "Kadar Besi(Fe)":
-            st.sidebar.latex(r"\% \text{Kadar Fe} = \frac{V \times N \times 56 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Kadar Fe} = \frac{V \times N \times \text{BE}_{\text{Fe}} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
         elif pilihan == "Kadar Klorida(Cl) Iodometri":
-            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times 17.75 \times 10^{-3} \times \frac{100}{5} \times 100}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times \text{BE}_{\text{Cl}} \times 10^{-3} \times \frac{100}{5} \times 100}{V_{\text{sampel}}}")
         elif pilihan == "Kadar Klorida(Cl) Argentometri":
-            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times 35.5 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times \text{BE}_{\text{Cl}} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
         elif pilihan == "Kesadahan Air":
-            st.sidebar.latex(r"\text{Kesadahan CaCO}_3 = \frac{V \times M \times 100}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\text{Kesadahan CaCO}_3 = \frac{V \times M \times \text{BM}_{\text{CaCO}_3}}{V_{\text{sampel}}}")
 
+    # Blok Input dan Operasi Perhitungan Halaman Utama
     if pilihan == "Kadar Asam Asetat":
-        st.latex(r"\% \text{Kadar Asam Asetat} = \frac{V \times N \times 60 \times 10^{-3} \times FP \times 100}{V_{\text{sampel}}}")
+        st.latex(r"\% \text{Kadar Asam Asetat} = \frac{V \times N \times \text{BE}_{\text{Asam Asetat}} \times 10^{-3} \times FP \times 100}{V_{\text{sampel}}}")
         V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
         N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
         FP = st.number_input("Faktor pengenceran (FP)", min_value=1.0, value=1.0)    
         V_sampel = st.number_input("Volume sampel (mL)", min_value=0.1, value=1.0)    
         if st.button("Hitung Kadar"):    
-            hasil = ((V * N * 60) * (10**-3) * FP * 100) / V_sampel    
+            BE_Asam_Asetat = 60
+            hasil = ((V * N * BE_Asam_Asetat) * (10**-3) * FP * 100) / V_sampel    
             st.success(f"Kadar CH3COOH = {round(hasil,2)} %")
             st.session_state.riwayat_pencarian.append(f"Kadar CH3COOH ➔ {round(hasil,2)} %")
 
     elif pilihan == "NaOH dan Na2CO3 (Warder)":
-        st.latex(r"\% \text{Na}_2\text{CO}_3 = \frac{2 \times (b - a) \times N \times 53 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
-        st.latex(r"\% \text{NaOH} = \frac{(2a - b) \times N \times 40 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        st.latex(r"\% \text{Na}_2\text{CO}_3 = \frac{2 \times (b - a) \times N \times \text{BE}_{\text{Na}_2\text{CO}_3} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        st.latex(r"\% \text{NaOH} = \frac{(2a - b) \times N \times \text{BE}_{\text{NaOH}} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
         a = st.number_input("Volume titrasi 1 / a (mL)", min_value=0.0)    
         b = st.number_input("Volume titrasi 2 / b (mL)", min_value=0.0)    
         N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
@@ -472,42 +474,46 @@ elif menu == "Kalkulator Kadar":
             st.session_state.riwayat_pencarian.append(f"Kadar Warder ➔ NaOH: {round(NaOH,2)}%, Na2CO3: {round(Na2CO3,2)}%")
 
     elif pilihan == "Kadar Besi(Fe)":
-        st.latex(r"\% \text{Kadar Fe} = \frac{V \times N \times 56 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        st.latex(r"\% \text{Kadar Fe} = \frac{V \times N \times \text{BE}_{\text{Fe}} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
         V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
         N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
         V_sampel = st.number_input("Volume sampel (mL)", min_value=0.1, value=1.0)    
         if st.button("Hitung Kadar"):    
-            hasil = ((V * N * 56) * (10**-3) * 100) / V_sampel    
+            BE_Fe = 56
+            hasil = ((V * N * BE_Fe) * (10**-3) * 100) / V_sampel    
             st.success(f"Kadar Fe = {round(hasil,2)} %")
             st.session_state.riwayat_pencarian.append(f"Kadar Fe ➔ {round(hasil,2)} %")
 
     elif pilihan == "Kadar Klorida(Cl) Iodometri":
-        st.latex(r"\% \text{Kadar Cl (Iodometri)} = \frac{V \times N \times 17.75 \times 10^{-3} \times \frac{100}{5} \times 100}{V_{\text{sampel}}}")
+        st.latex(r"\% \text{Kadar Cl (Iodometri)} = \frac{V \times N \times \text{BE}_{\text{Cl}} \times 10^{-3} \times \frac{100}{5} \times 100}{V_{\text{sampel}}}")
         V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
         N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
         V_sampel = st.number_input("Volume sampel (mL)", min_value=0.1, value=10.0)    
         if st.button("Hitung Kadar"):    
-            hasil = ((V * N * 17.75) * (10**-3) * (100/5) * 100) / V_sampel    
+            BE_Cl_Iod = 17.75
+            hasil = ((V * N * BE_Cl_Iod) * (10**-3) * (100/5) * 100) / V_sampel    
             st.success(f"Kadar Cl = {round(hasil,2)} %")
             st.session_state.riwayat_pencarian.append(f"Kadar Cl Iodometri ➔ {round(hasil,2)} %")
 
     elif pilihan == "Kadar Klorida(Cl) Argentometri":
-        st.latex(r"\% \text{Kadar Cl (Argentometri)} = \frac{V \times N \times 35.5 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        st.latex(r"\% \text{Kadar Cl (Argentometri)} = \frac{V \times N \times \text{BE}_{\text{Cl}} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
         V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
         N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
         V_sampel = st.number_input("Volume sampel (mL)", min_value=0.1, value=10.0)    
         if st.button("Hitung Kadar"):    
-            hasil = ((V * N * 35.5) * (10**-3) * 100) / V_sampel    
+            BE_Cl_Arg = 35.5
+            hasil = ((V * N * BE_Cl_Arg) * (10**-3) * 100) / V_sampel    
             st.success(f"Kadar Cl = {round(hasil,2)} %")
             st.session_state.riwayat_pencarian.append(f"Kadar Cl Argentometri ➔ {round(hasil,2)} %")
 
     elif pilihan == "Kesadahan Air":
-        st.latex(r"\text{Kesadahan CaCO}_3 = \frac{V \times M \times 100}{V_{\text{sampel}}}")
+        st.latex(r"\text{Kesadahan CaCO}_3 = \frac{V \times M \times \text{BM}_{\text{CaCO}_3}}{V_{\text{sampel}}}")
         V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
         M = st.number_input("Molaritas / M (mmol/mL)", min_value=0.0, format="%.4f")    
         V_sampel = st.number_input("Volume sampel (L)", min_value=0.001, value=0.1)    
         if st.button("Hitung Kadar"):    
-            hasil = ((V * M * 100)) / V_sampel    
+            BM_CaCO3 = 100
+            hasil = ((V * M * BM_CaCO3)) / V_sampel    
             st.success(f"Kadar CaCO3 = {round(hasil,2)} mg/L (ppm)")
             st.session_state.riwayat_pencarian.append(f"Kesadahan Air ➔ {round(hasil,2)} ppm")
 
