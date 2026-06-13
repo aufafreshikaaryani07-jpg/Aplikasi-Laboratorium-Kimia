@@ -218,11 +218,9 @@ alat_lab = list(database_alat.keys())
 # HOME
 # =====================================================
 if menu == "Home":
-    # --- PERBAIKAN 1: Modifikasi Salju Terbang + Nama Rumus Kimia ---
     senyawa_list = ["❄️", "KMnO4", "H2SO4", "HCl", "NaOH", "CH3COOH", "NaCl", "C6H12O6", "H2O", "NH3", "✨"]
     rumus_terbang = random.choices(senyawa_list, k=40)
     
-    # Custom CSS untuk injeksi partikel teks bergerak acak
     gerakan_css = "<style>"
     for i in range(len(rumus_terbang)):
         durasi = random.uniform(5, 15)
@@ -245,7 +243,6 @@ if menu == "Home":
     gerakan_css += "</style>"
     st.markdown(gerakan_css, unsafe_allow_html=True)
     
-    # Render elemen teks kimia berterbangan
     for i, teks in enumerate(rumus_terbang):
         st.markdown(f'<div class="partikel-{i}">{teks}</div>', unsafe_allow_html=True)
 
@@ -318,21 +315,19 @@ if menu == "Home":
 elif menu == "Cek Stok Alat Laboratorium":
     st.header("CEK STOK ALAT LABORATORIUM")
     
-    # --- PERBAIKAN 2: Dropdown & Input pencarian teks digabung secara fleksibel ---
     pilihan_alat = st.selectbox("Pilih alat yang ingin dicek:", ["-- Pilih Alat --"] + alat_lab)
     
-    # Menampilkan pilihan sub-jenis khusus jika Spektrofotometer dipilih
     if pilihan_alat == "Spektrofotometer":
         jenis_spektro = st.selectbox(
             "Pilih Jenis Spektrofotometer:",
-            ["Spektrofotometer UV-Vis", "Gas Chromatography (GC)", "High-Performance Liquid Chromatography (HPLC)", "Atomic Absorption Spectroscopy (AAS)"]
+            ["Spektrofotometer UV-Vis", "Gas Chromatography (GC)", "High-Performance Liquid Chromatography (HPLC)", "Atomic Absorption Spectroscopy (AAS)"],
+            key="pencarian_atas"
         )
     
     if st.button("Cek Detail Alat"):
         if pilihan_alat != "-- Pilih Alat --":
             stok_saat_ini = database_alat[pilihan_alat]['stok']
             
-            # Memunculkan status ketersediaan secara utuh
             if stok_saat_ini > 0:
                 nama_alat_final = f"{pilihan_alat} ({jenis_spektro})" if pilihan_alat == "Spektrofotometer" else pilihan_alat
                 st.success(f"Alat '{nama_alat_final}' TERSEDIA di Laboratorium")    
@@ -347,7 +342,6 @@ elif menu == "Cek Stok Alat Laboratorium":
                     st.metric(label="Jumlah Stok Tersedia (Qty)", value=f"{stok_saat_ini} unit")
                 st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{nama_alat_final}' ditemukan. Stok: {stok_saat_ini} unit.")
             else:
-                # --- PERBAIKAN: Menulis kata "Tidak tersedia" saat alat tidak ada (stok=0) ---
                 st.error(f"Alat '{pilihan_alat}' TIDAK TERSEDIA (Stok Habis)!")
                 st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_alat}' TIDAK TERSEDIA.")
         else:
@@ -366,10 +360,19 @@ elif menu == "Cek Stok Alat Laboratorium":
                     st.write("⚠️ Gambar belum dimasukkan.")
             with col_kanan:
                 st.write(f"**Deskripsi Fungsi:** {data_item['fungsi']}")
+                
+                # --- MODIFIKASI KHUSUS DROPDOWN DI DALAM EXPANDER SPEKTROFOTOMETER ---
+                if nama_item == "Spektrofotometer":
+                    jenis_spektro_katalog = st.selectbox(
+                        "Pilih Jenis Spektrofotometer yang Ingin Digunakan:",
+                        ["Spektrofotometer UV-Vis", "Gas Chromatography (GC)", "High-Performance Liquid Chromatography (HPLC)", "Atomic Absorption Spectroscopy (AAS)"],
+                        key="katalog_bawah_spektro"
+                    )
+                    st.info(f"Instrumen Terpilih untuk Praktikum: **{jenis_spektro_katalog}**")
+                
                 if data_item['stok'] > 0:
                     st.write(f"**Status Ketersediaan:** {data_item['stok']} unit siap digunakan praktikum.")
                 else:
-                    # Menuliskan status tidak tersedia di dalam komponen expander katalog lengkap
                     st.write("**Status Ketersediaan:** ❌ Alat TIDAK TERSEDIA (Stok Habis).")
 
 
@@ -437,7 +440,6 @@ elif menu == "Kalkulator Pengenceran":
 # MENU KALKULATOR KADAR
 # =====================================================
 elif menu == "Kalkulator Kadar":
-    # --- PERBAIKAN 5: Mengubah judul halaman utama kalkulator kadar ---
     st.header("KALKULATOR KADAR PENETAPAN ANALISIS TITRIMETRI")
     
     pilihan = st.selectbox(
@@ -452,7 +454,6 @@ elif menu == "Kalkulator Kadar":
         ]
     )
 
-    # --- PERBAIKAN 5: Kata Pengertian diganti menjadi Kegunaan di Sidebar ---
     with st.sidebar:
         st.markdown("""
         <div class="penjelasan-sidebar">
@@ -476,7 +477,6 @@ elif menu == "Kalkulator Kadar":
         elif pilihan == "Kesadahan Air":
             st.sidebar.latex(r"\text{Kesadahan CaCO}_3 = \frac{V \times M \times 100}{V_{\text{sampel}}}")
 
-    # Blok Input dan Operasi Perhitungan Halaman Utama
     if pilihan == "Kadar Asam Asetat":
         st.latex(r"\% \text{Kadar Asam Asetat} = \frac{V \times N \times 60 \times 10^{-3} \times FP \times 100}{V_{\text{sampel}}}")
         V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
@@ -559,22 +559,18 @@ elif menu == "Kalkulator pH":
     st.sidebar.latex(r"\text{pH} = -\log_{10}[H^+]")
     st.header("KALKULATOR pH")
     
-    # --- PERBAIKAN 6: Kata catatan fitur diganti menjadi catatan ---
     st.warning("""
     📋 **Catatan:**
     * Perhitungan ini dikhususkan untuk senyawa jenis **Asam Kuat Monovalen** langsung tanpa tetapan kesetimbangan.
     * Parameter batasan output interval hasil akhir disesuaikan pada standar baku skala **0 hingga 14**.
     """)
 
-    # --- PERBAIKAN 6: Mengembalikan input agar bisa membaca pangkat (10^-4) dan koma Indonesia ---
     h_input = st.text_input("Masukkan konsentrasi H+ (contoh: 10^-4 atau 0.0001)", value="0.0001")
     
     if st.button("Hitung pH"):
         try:    
-            # Mengganti koma jadi titik (format desimal Indonesia ke standar python)
             h_input = h_input.replace(",", ".")
 
-            # Pendeteksian format eksponen/pangkat 10^-4
             if "^" in h_input:
                 base, exp = h_input.split("^")
                 if base.strip() == "10":
@@ -584,18 +580,15 @@ elif menu == "Kalkulator pH":
             else:
                 h = float(h_input)
 
-            # Validasi input numerik
             if h <= 0:
                 st.error("Konsentrasi H+ harus lebih besar dari 0!")
             else:
                 hasil = -math.log10(h)
                 ph = round(hasil, 2)
 
-                # Batasi Skala pH agar tetap rasional 0 - 14
                 if ph < 0: ph = 0
                 elif ph > 14: ph = 14
 
-                # --- PERBAIKAN 6: Mengembalikan Fitur Klasifikasi Sifat Larutan ---
                 if ph < 1:
                     sifat = "Asam Sangat Kuat"
                 elif ph < 3:
@@ -611,7 +604,6 @@ elif menu == "Kalkulator pH":
                 else:
                     sifat = "Basa Sangat Kuat"
 
-                # Output dinamis menggunakan container berwarna bawaan Streamlit
                 if ph < 7:
                     st.error(f"pH = {ph} ({sifat})")
                 elif ph == 7:
