@@ -154,6 +154,7 @@ elif menu == "Kalkulator pH":
 # =====================================================
 # DATABASE INVENTARIS ALAT LAB LENGKAP (57 ALAT)
 # =====================================================
+# NOTE: Nama file gambar Spektrofotometer disesuaikan dengan Spasi sesuai data di GitHub Anda
 database_alat = {
     "Alu": {"fungsi": "Menghancurkan atau menghaluskan sampel padat laboratorium bersama mortar.", "stok": 15, "img": "Alu.jpg.jpeg"},
     "Batang Pengaduk": {"fungsi": "Mengaduk larutan kimia agar komponen zat terlarut dapat tercampur homogen.", "stok": 40, "img": "Batang Pengaduk.jpg.jpeg"},
@@ -200,10 +201,13 @@ database_alat = {
     "Sentrifus": {"fungsi": "Memisahkan endapan dan organel komponen cair berbasis gaya sentrifugal.", "stok": 5, "img": "Sentrifus.jpg.jpeg"},
     "Segitiga Porselen": {"fungsi": "Penyangga cawan porselen saat dipanaskan di atas kaki tiga.", "stok": 15, "img": "Segitiga Porselen.jpg.jpeg"},
     "Spatula Logam": {"fungsi": "Sendok kecil untuk mengambil sampel berwujud padat atau serbuk.", "stok": 40, "img": "Spatula Logam.jpg.jpeg"},
+    
+    # --- PERBAIKAN: Menggunakan Nama File Ber-spasi Sesuai Dengan Gambar Di GitHub Anda ---
     "Spektrofotometer AAS": {"fungsi": "Menganalisis konsentrasi unsur logam dalam sampel berdasarkan prinsip spektrometri serapan atom menggunakan nyala api.", "stok": 2, "img": "Spektrofotometer AAS.jpg.jpeg"},
     "Spektrofotometer GC": {"fungsi": "Mengidentifikasi, memisahkan, dan mengukur kadar komponen senyawa organik volatil (mudah menguap) pada fase gas.", "stok": 1, "img": "Spektrofotometer GC.jpg.jpeg"},
     "Spektrofotometer HPLC": {"fungsi": "Memisahkan komponen analit non-volatil fase cair dengan akurasi dan tekanan tinggi serta mendeteksi konsentrasinya.", "stok": 2, "img": "Spektrofotometer HPLC.jpg.jpeg"},
     "Spektrofotometer UV-Vis": {"fungsi": "Mengukur nilai absorbansi dan transmitansi larutan berwarna pada spektrum panjang gelombang ultra-violet dan sinar tampak.", "stok": 4, "img": "Spektrofotometer UV-Vis.jpg.jpeg"},
+    
     "Statif": {"fungsi": "Tiang logam vertikal dasar kokoh yang menyangga dudukan klem buret.", "stok": 30, "img": "Statif.jpg.jpeg"},
     "Pembakar Spiritus": {"fungsi": "Lampu pembakar portable bermedia bahan bakar spirtus cair.", "stok": 20, "img": "Pembakar Spiritus.jpg.jpeg"},
     "Soxhlet": {"fungsi": "Ekstraksi komponen zat aktif padat menggunakan pelarut cair berulang kali.", "stok": 4, "img": "Soxhlet.jpg.jpeg"},
