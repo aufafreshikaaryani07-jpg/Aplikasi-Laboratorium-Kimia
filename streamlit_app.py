@@ -152,7 +152,7 @@ elif menu == "Kalkulator pH":
 
 
 # =====================================================
-# DATABASE INVENTARIS ALAT LAB LENGKAP (55 ALAT)
+# DATABASE INVENTARIS ALAT LAB LENGKAP (54 ALAT)
 # =====================================================
 database_alat = {
     "Alu": {"fungsi": "Menghancurkan atau menghaluskan sampel padat laboratorium bersama mortar.", "stok": 15, "img": "Alu.jpg.jpeg"},
@@ -164,7 +164,7 @@ database_alat = {
     "Buret": {"fungsi": "Mengeluarkan larutan dengan volume spesifik dan akurat pada analisis titrasi.", "stok": 20, "img": "Buret.jpg.jpeg"},
     "Bunsen": {"fungsi": "Alat pemanas lab dengan sistem pembakaran gas untuk sterilisasi dan pemanasan zat.", "stok": 15, "img": "Bunsen.jpg.jpeg"},
     "Cawan Petri": {"fungsi": "Wadah sirkular jernih untuk membiakkan media mikroorganisme dan bakteri.", "stok": 50, "img": "Cawan Petri.jpg.jpeg"},
-    "Cawan Krusibel": {"fungsi": "Wadah untuk memanaskan spesimen atau sampel padat hingga suhu sangat tinggi.", "stok": 15, "img": "Cawan Krusibel.jpg.jpeg"},
+    "Cawan Krusibel": {"fungsi": "Wadah porselen atau logam kuningan untuk memanaskan sampel kadar abu suhu tinggi.", "stok": 12, "img": "Cawan Krusibel.jpg.jpeg"},
     "Corong Kaca": {"fungsi": "Mempermudah pemindahan cairan ke wadah bermulut kecil dan menopang kertas saring.", "stok": 30, "img": "Corong Kaca.jpg.jpeg"},
     "Cawan Porselen": {"fungsi": "Mereaksikan atau menguapkan larutan pada suhu tinggi di atas kaki tiga.", "stok": 25, "img": "Cawan Porselen.jpg.jpeg"},
     "Corong Pisah": {"fungsi": "Memisahkan komponen fraksi dari dua cairan fase berbeda berdasarkan berat jenis.", "stok": 10, "img": "Corong Pisah.jpg.jpeg"},
@@ -194,7 +194,7 @@ database_alat = {
     "Pipet Volume": {"fungsi": "Mengambil larutan cair dengan volume tunggal spesifik berakurasi tinggi.", "stok": 40, "img": "Pipet Volume.jpg.jpeg"},
     "Pipet Tetes": {"fungsi": "Memindahkan cairan reagen dalam volume sangat kecil secara tetes demi tetes.", "stok": 80, "img": "Pipet Tetes.jpg.jpeg"},
     "Pipet Mohr": {"fungsi": "Mengambil larutan dengan rentang volume bervariasi sesuai garis tanda skala.", "stok": 30, "img": "Pipet Mohr.jpg.jpeg"},
-    "Piknometer": {"fungsi": "Mengukur nilai masa jenis atau densitas dari suatu cairan sampel.", "stok": 15, "img": "Piknometer.jpg.jpeg"},
+    "Piknometer": {"fungsi": "Mengukur nilai massa jenis atau densitas dari suatu cairan sampel.", "stok": 15, "img": "Piknometer.jpg.jpeg"},
     "Polismen": {"fungsi": "Alat bantu untuk membersihkan dinding wadah gelas dari endapan pereaksi.", "stok": 20, "img": "Polismen.jpg.jpeg"},
     "Rak Tabung Reaksi": {"fungsi": "Tempat menata dan menegakkan posisi tabung reaksi agar tidak tumpah.", "stok": 25, "img": "Rak Tabung Reaksi.jpg.jpeg"},
     "Sentrifus": {"fungsi": "Memisahkan endapan dan organel komponen cair berbasis gaya sentrifugal.", "stok": 5, "img": "Sentrifus.jpg.jpeg"},
@@ -211,16 +211,18 @@ database_alat = {
     "Vortex": {"fungsi": "Mengocok secara cepat tabung reaksi berisi sampel agar larut homogen.", "stok": 6, "img": "Vortex.jpg.jpeg"},
     "Waterbath": {"fungsi": "Pemanas lab tidak langsung dengan media air untuk menjaga stabilitas suhu sampel.", "stok": 4, "img": "Waterbath.jpg.jpeg"}
 }
-alat_lab = sorted(list(database_alat.keys()))
+alat_lab = list(database_alat.keys())
 
 
 # =====================================================
 # HOME
 # =====================================================
 if menu == "Home":
+    # --- PERBAIKAN 1: Modifikasi Salju Terbang + Nama Rumus Kimia ---
     senyawa_list = ["❄️", "KMnO4", "H2SO4", "HCl", "NaOH", "CH3COOH", "NaCl", "C6H12O6", "H2O", "NH3", "✨"]
     rumus_terbang = random.choices(senyawa_list, k=40)
     
+    # Custom CSS untuk injeksi partikel teks bergerak acak
     gerakan_css = "<style>"
     for i in range(len(rumus_terbang)):
         durasi = random.uniform(5, 15)
@@ -243,6 +245,7 @@ if menu == "Home":
     gerakan_css += "</style>"
     st.markdown(gerakan_css, unsafe_allow_html=True)
     
+    # Render elemen teks kimia berterbangan
     for i, teks in enumerate(rumus_terbang):
         st.markdown(f'<div class="partikel-{i}">{teks}</div>', unsafe_allow_html=True)
 
@@ -315,9 +318,10 @@ if menu == "Home":
 elif menu == "Cek Stok Alat Laboratorium":
     st.header("CEK STOK ALAT LABORATORIUM")
     
+    # --- PERBAIKAN 2: Dropdown & Input pencarian teks digabung secara fleksibel ---
     pilihan_alat = st.selectbox("Pilih alat yang ingin dicek:", ["-- Pilih Alat --"] + alat_lab)
     
-    # Kondisi sub-fitur spesifik ketika memilih Spektrofotometer
+    # Menampilkan pilihan sub-jenis khusus jika Spektrofotometer dipilih
     if pilihan_alat == "Spektrofotometer":
         jenis_spektro = st.selectbox(
             "Pilih Jenis Spektrofotometer:",
@@ -328,20 +332,22 @@ elif menu == "Cek Stok Alat Laboratorium":
         if pilihan_alat != "-- Pilih Alat --":
             stok_saat_ini = database_alat[pilihan_alat]['stok']
             
+            # Memunculkan status ketersediaan secara utuh
             if stok_saat_ini > 0:
-                nama_tampilan = f"{pilihan_alat} ({jenis_spektro})" if pilihan_alat == "Spektrofotometer" else pilihan_alat
-                st.success(f"Alat '{nama_tampilan}' TERSEDIA di Laboratorium")    
+                nama_alat_final = f"{pilihan_alat} ({jenis_spektro})" if pilihan_alat == "Spektrofotometer" else pilihan_alat
+                st.success(f"Alat '{nama_alat_final}' TERSEDIA di Laboratorium")    
                 c_img, c_fng = st.columns([1, 2])
                 with c_img:
                     try:
-                        st.image(database_alat[pilihan_alat]["img"], use_container_width=True, caption=nama_tampilan)
+                        st.image(database_alat[pilihan_alat]["img"], use_container_width=True, caption=nama_alat_final)
                     except:
                         st.write("📸 *Pratinjau Gambar Siap Ditambahkan*")
                 with c_fng:
                     st.info(f"**Fungsi Utama:** {database_alat[pilihan_alat]['fungsi']}")
                     st.metric(label="Jumlah Stok Tersedia (Qty)", value=f"{stok_saat_ini} unit")
-                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{nama_tampilan}' ditemukan. Stok: {stok_saat_ini} unit.")
+                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{nama_alat_final}' ditemukan. Stok: {stok_saat_ini} unit.")
             else:
+                # --- PERBAIKAN: Menulis kata "Tidak tersedia" saat alat tidak ada (stok=0) ---
                 st.error(f"Alat '{pilihan_alat}' TIDAK TERSEDIA (Stok Habis)!")
                 st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_alat}' TIDAK TERSEDIA.")
         else:
@@ -363,6 +369,7 @@ elif menu == "Cek Stok Alat Laboratorium":
                 if data_item['stok'] > 0:
                     st.write(f"**Status Ketersediaan:** {data_item['stok']} unit siap digunakan praktikum.")
                 else:
+                    # Menuliskan status tidak tersedia di dalam komponen expander katalog lengkap
                     st.write("**Status Ketersediaan:** ❌ Alat TIDAK TERSEDIA (Stok Habis).")
 
 
@@ -370,6 +377,22 @@ elif menu == "Cek Stok Alat Laboratorium":
 # MENU KALKULATOR MOLARITAS
 # =====================================================
 elif menu == "Kalkulator Molaritas":
+    st.sidebar.markdown("""
+    <div class="penjelasan-sidebar">
+        <strong>📚 Kegunaan:</strong><br>
+        Digunakan untuk menghitung konsentrasi larutan secara otomatis berdasarkan jumlah mol dan volume larutan.<br><br>
+        <strong>🧪 Rumus Kimia:</strong>
+    </div>
+    """, unsafe_allow_html=True)
+    st.sidebar.latex(r"M = \frac{n}{V}")
+    st.sidebar.markdown("""
+    <div class="penjelasan-sidebar" style="margin-top:0px; border-left:none; background:transparent; padding-top:0px;">
+        <strong>Unit Satuan:</strong><br>
+        • M: Molaritas (mol/L)<br>
+        • n: Jumlah mol (mol)<br>
+        • V: Volume larutan (L)
+    </div>
+    """, unsafe_allow_html=True)
     st.header("KALKULATOR MOLARITAS")
     
     mol = st.number_input("Masukkan jumlah mol (mol):", min_value=0.0)
@@ -384,6 +407,21 @@ elif menu == "Kalkulator Molaritas":
 # MENU KALKULATOR PENGENCERAN
 # =====================================================
 elif menu == "Kalkulator Pengenceran":
+    st.sidebar.markdown("""
+    <div class="penjelasan-sidebar">
+        <strong>📚 Kegunaan:</strong><br>
+        Digunakan untuk menghitung volume larutan akhir setelah proses penambahan pelarut murni tanpa mengubah massa zat terlarut.<br><br>
+        <strong>🧪 Rumus Kimia:</strong>
+    </div>
+    """, unsafe_allow_html=True)
+    st.sidebar.latex(r"M_1 \times V_1 = M_2 \times V_2")
+    st.sidebar.markdown("""
+    <div class="penjelasan-sidebar" style="margin-top:0px; border-left:none; background:transparent; padding-top:0px;">
+        <strong>Unit Satuan:</strong><br>
+        • M1 / M2: Molaritas awal dan akhir (M)<br>
+        • V1 / V2: Volume awal dan akhir (mL)
+    </div>
+    """, unsafe_allow_html=True)
     st.header("KALKULATOR PENGENCERAN")
     
     M1 = st.number_input("Masukkan M1 (M):", min_value=0.0)
@@ -399,6 +437,7 @@ elif menu == "Kalkulator Pengenceran":
 # MENU KALKULATOR KADAR
 # =====================================================
 elif menu == "Kalkulator Kadar":
+    # --- PERBAIKAN 5: Mengubah judul halaman utama kalkulator kadar ---
     st.header("KALKULATOR KADAR PENETAPAN ANALISIS TITRIMETRI")
     
     pilihan = st.selectbox(
@@ -413,6 +452,7 @@ elif menu == "Kalkulator Kadar":
         ]
     )
 
+    # --- PERBAIKAN 5: Kata Pengertian diganti menjadi Kegunaan di Sidebar ---
     with st.sidebar:
         st.markdown("""
         <div class="penjelasan-sidebar">
@@ -509,20 +549,32 @@ elif menu == "Kalkulator Kadar":
 # MENU KALKULATOR pH
 # =====================================================
 elif menu == "Kalkulator pH":
+    st.sidebar.markdown("""
+    <div class="penjelasan-sidebar">
+        <strong>📚 Kegunaan:</strong><br>
+        Digunakan untuk mendeteksi derajat kekuatan keasaman zat senyawa cair berbasis aktivitas konsentrasi logaritma ion hidrogen.<br><br>
+        <strong>🧪 Rumus Kimia:</strong>
+    </div>
+    """, unsafe_allow_html=True)
+    st.sidebar.latex(r"\text{pH} = -\log_{10}[H^+]")
     st.header("KALKULATOR pH")
     
+    # --- PERBAIKAN 6: Kata catatan fitur diganti menjadi catatan ---
     st.warning("""
     📋 **Catatan:**
     * Perhitungan ini dikhususkan untuk senyawa jenis **Asam Kuat Monovalen** langsung tanpa tetapan kesetimbangan.
     * Parameter batasan output interval hasil akhir disesuaikan pada standar baku skala **0 hingga 14**.
     """)
 
+    # --- PERBAIKAN 6: Mengembalikan input agar bisa membaca pangkat (10^-4) dan koma Indonesia ---
     h_input = st.text_input("Masukkan konsentrasi H+ (contoh: 10^-4 atau 0.0001)", value="0.0001")
     
     if st.button("Hitung pH"):
         try:    
+            # Mengganti koma jadi titik (format desimal Indonesia ke standar python)
             h_input = h_input.replace(",", ".")
 
+            # Pendeteksian format eksponen/pangkat 10^-4
             if "^" in h_input:
                 base, exp = h_input.split("^")
                 if base.strip() == "10":
@@ -532,15 +584,18 @@ elif menu == "Kalkulator pH":
             else:
                 h = float(h_input)
 
+            # Validasi input numerik
             if h <= 0:
                 st.error("Konsentrasi H+ harus lebih besar dari 0!")
             else:
                 hasil = -math.log10(h)
                 ph = round(hasil, 2)
 
+                # Batasi Skala pH agar tetap rasional 0 - 14
                 if ph < 0: ph = 0
                 elif ph > 14: ph = 14
 
+                # --- PERBAIKAN 6: Mengembalikan Fitur Klasifikasi Sifat Larutan ---
                 if ph < 1:
                     sifat = "Asam Sangat Kuat"
                 elif ph < 3:
@@ -556,6 +611,7 @@ elif menu == "Kalkulator pH":
                 else:
                     sifat = "Basa Sangat Kuat"
 
+                # Output dinamis menggunakan container berwarna bawaan Streamlit
                 if ph < 7:
                     st.error(f"pH = {ph} ({sifat})")
                 elif ph == 7:
