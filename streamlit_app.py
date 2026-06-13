@@ -152,9 +152,8 @@ elif menu == "Kalkulator pH":
 
 
 # =====================================================
-# DATABASE INVENTARIS ALAT LAB LENGKAP (57 ALAT)
+# DATABASE INVENTARIS ALAT LAB LENGKAP (DENGAN TAMBAHAN & SUB-SPEKTROFOTOMETER)
 # =====================================================
-# NOTE: Nama file gambar Spektrofotometer disesuaikan dengan Spasi sesuai data di GitHub Anda
 database_alat = {
     "Alu": {"fungsi": "Menghancurkan atau menghaluskan sampel padat laboratorium bersama mortar.", "stok": 15, "img": "Alu.jpg.jpeg"},
     "Batang Pengaduk": {"fungsi": "Mengaduk larutan kimia agar komponen zat terlarut dapat tercampur homogen.", "stok": 40, "img": "Batang Pengaduk.jpg.jpeg"},
@@ -165,7 +164,7 @@ database_alat = {
     "Buret": {"fungsi": "Mengeluarkan larutan dengan volume spesifik dan akurat pada analisis titrasi.", "stok": 20, "img": "Buret.jpg.jpeg"},
     "Bunsen": {"fungsi": "Alat pemanas lab dengan sistem pembakaran gas untuk sterilisasi dan pemanasan zat.", "stok": 15, "img": "Bunsen.jpg.jpeg"},
     "Cawan Petri": {"fungsi": "Wadah sirkular jernih untuk membiakkan media mikroorganisme dan bakteri.", "stok": 50, "img": "Cawan Petri.jpg.jpeg"},
-    "Cawan Krusibel": {"fungsi": "Wadah untuk memanaskan senyawa kimia pada temperatur yang sangat tinggi (pengabuan).", "stok": 18, "img": "Cawan Krusibel.jpg.jpeg"},
+    "Cawan Krusibel": {"fungsi": "Wadah untuk memanaskan atau membakar senyawa kimia pada suhu sangat tinggi di dalam tanur.", "stok": 25, "img": "Cawan Krusibel.jpg.jpeg"},
     "Corong Kaca": {"fungsi": "Mempermudah pemindahan cairan ke wadah bermulut kecil dan menopang kertas saring.", "stok": 30, "img": "Corong Kaca.jpg.jpeg"},
     "Cawan Porselen": {"fungsi": "Mereaksikan atau menguapkan larutan pada suhu tinggi di atas kaki tiga.", "stok": 25, "img": "Cawan Porselen.jpg.jpeg"},
     "Corong Pisah": {"fungsi": "Memisahkan komponen fraksi dari dua cairan fase berbeda berdasarkan berat jenis.", "stok": 10, "img": "Corong Pisah.jpg.jpeg"},
@@ -201,10 +200,10 @@ database_alat = {
     "Sentrifus": {"fungsi": "Memisahkan endapan dan organel komponen cair berbasis gaya sentrifugal.", "stok": 5, "img": "Sentrifus.jpg.jpeg"},
     "Segitiga Porselen": {"fungsi": "Penyangga cawan porselen saat dipanaskan di atas kaki tiga.", "stok": 15, "img": "Segitiga Porselen.jpg.jpeg"},
     "Spatula Logam": {"fungsi": "Sendok kecil untuk mengambil sampel berwujud padat atau serbuk.", "stok": 40, "img": "Spatula Logam.jpg.jpeg"},
-    "Spektrofotometer AAS": {"fungsi": "Menganalisis konsentrasi unsur logam dalam sampel berdasarkan prinsip spektrometri serapan atom menggunakan nyala api.", "stok": 2, "img": "Spektrofotometer AASjpg.jpeg"},
-    "Spektrofotometer GC": {"fungsi": "Mengidentifikasi, memisahkan, dan mengukur kadar komponen senyawa organik volatil (mudah menguap) pada fase gas.", "stok": 1, "img": "Spektrofotometer GC.jpg.jpeg"},
-    "Spektrofotometer HPLC": {"fungsi": "Memisahkan komponen analit non-volatil fase cair dengan akurasi dan tekanan tinggi serta mendeteksi konsentrasinya.", "stok": 2, "img": "Spektrofotometer HPLC.jpg.jpeg"},
-    "Spektrofotometer UV-Vis": {"fungsi": "Mengukur nilai absorbansi dan transmitansi larutan berwarna pada spektrum panjang gelombang ultra-violet dan sinar tampak.", "stok": 4, "img": "Spektrofotometer UV-Vis.jpg.jpeg"},
+    "Spektrofotometer AAS": {"fungsi": "Mengukur konsentrasi unsur logam berdasarkan penyerapan radiasi oleh atom bebas.", "stok": 2, "img": "Spektrofotometer AAS.jpg.jpeg"},
+    "Spektrofotometer GC": {"fungsi": "Kromatografi gas untuk memisahkan dan menganalisis senyawa yang mudah menguap.", "stok": 1, "img": "Spektrofotometer GC.jpg.jpeg"},
+    "Spektrofotometer HPLC": {"fungsi": "Kromatografi cair kinerja tinggi untuk memisahkan komponen dalam campuran larutan secara akurat.", "stok": 2, "img": "Spektrofotometer HPLC.jpg.jpeg"},
+    "Spektrofotometer UV-Vis": {"fungsi": "Mengukur nilai absorbansi dan transmitansi larutan menggunakan panjang gelombang cahaya ultra-violet dan tampak.", "stok": 3, "img": "Spektrofotometer UV-Vis.jpg.jpeg"},
     "Statif": {"fungsi": "Tiang logam vertikal dasar kokoh yang menyangga dudukan klem buret.", "stok": 30, "img": "Statif.jpg.jpeg"},
     "Pembakar Spiritus": {"fungsi": "Lampu pembakar portable bermedia bahan bakar spirtus cair.", "stok": 20, "img": "Pembakar Spiritus.jpg.jpeg"},
     "Soxhlet": {"fungsi": "Ekstraksi komponen zat aktif padat menggunakan pelarut cair berulang kali.", "stok": 4, "img": "Soxhlet.jpg.jpeg"},
@@ -215,7 +214,15 @@ database_alat = {
     "Vortex": {"fungsi": "Mengocok secara cepat tabung reaksi berisi sampel agar larut homogen.", "stok": 6, "img": "Vortex.jpg.jpeg"},
     "Waterbath": {"fungsi": "Pemanas lab tidak langsung dengan media air untuk menjaga stabilitas suhu sampel.", "stok": 4, "img": "Waterbath.jpg.jpeg"}
 }
-alat_lab = list(database_alat.keys())
+
+# Menyusun nama alat utama untuk dropdown filter awal (Menggabungkan varian Spektrofotometer jadi 1 opsi)
+alat_lab = []
+for nama in database_alat.keys():
+    if "Spektrofotometer" in nama:
+        if "Spektrofotometer" not in alat_lab:
+            alat_lab.append("Spektrofotometer")
+    else:
+        alat_lab.append(nama)
 
 
 # =====================================================
@@ -225,7 +232,6 @@ if menu == "Home":
     senyawa_list = ["❄️", "KMnO4", "H2SO4", "HCl", "NaOH", "CH3COOH", "NaCl", "C6H12O6", "H2O", "NH3", "✨"]
     rumus_terbang = random.choices(senyawa_list, k=40)
     
-    # Custom CSS untuk injeksi partikel teks bergerak acak
     gerakan_css = "<style>"
     for i in range(len(rumus_terbang)):
         durasi = random.uniform(5, 15)
@@ -248,7 +254,6 @@ if menu == "Home":
     gerakan_css += "</style>"
     st.markdown(gerakan_css, unsafe_allow_html=True)
     
-    # Render elemen teks kimia berterbangan
     for i, teks in enumerate(rumus_terbang):
         st.markdown(f'<div class="partikel-{i}">{teks}</div>', unsafe_allow_html=True)
 
@@ -259,7 +264,7 @@ if menu == "Home":
     <h3>The Pathway Through Chemistry</h3>    
     <p>    
     Molevia hadir sebagai platform laboratorium digital yang mengintegrasikan perhitungan kimia    
-    dan manajemen inventaris dalam satu aplikasi yang sederhana, cepat, dan akurat.    
+    dan manajemen inventaris dalam satu application yang sederhana, cepat, dan akurat.    
     </p>    
     </div>    
     """, unsafe_allow_html=True)    
@@ -316,44 +321,37 @@ if menu == "Home":
 
 
 # =====================================================
-# MENU CEK STOK ALAT LABORATORIUM
+# MENU CEK ALAT
 # =====================================================
 elif menu == "Cek Stok Alat Laboratorium":
     st.header("CEK STOK ALAT LABORATORIUM")
     
-    # Filter agar pilihan "Spektrofotometer" yang spesifik digabung jadi satu wadah menu utama
-    opsi_tampilan = ["-- Pilih Alat --"] + [item for item in alat_lab if not item.startswith("Spektrofotometer ")] + ["Spektrofotometer"]
-    opsi_tampilan.sort(key=lambda x: (x == "-- Pilih Alat --", x))
+    pilihan_alat = st.selectbox("Pilih alat yang ingin dicek:", ["-- Pilih Alat --"] + alat_lab)
     
-    pilihan_utama = st.selectbox("Pilih alat yang ingin dicek:", opsi_tampilan)
-    
-    # Logika percabangan jika memilih Spektrofotometer
-    if pilihan_utama == "Spektrofotometer":
-        sub_spektro = st.selectbox("Pilih jenis instrumen Spektrofotometer:", ["Spektrofotometer AAS", "Spektrofotometer GC", "Spektrofotometer HPLC", "Spektrofotometer UV-Vis"])
-        pilihan_alat = sub_spektro
-    else:
-        pilihan_alat = pilihan_utama
-        
+    # Sub-pilihan dinamis jika memilih Spektrofotometer
+    pilihan_final = pilihan_alat
+    if pilihan_alat == "Spektrofotometer":
+        pilihan_final = st.selectbox("Pilih Jenis Spektrofotometer:", ["Spektrofotometer AAS", "Spektrofotometer GC", "Spektrofotometer HPLC", "Spektrofotometer UV-Vis"])
+
     if st.button("Cek Detail Alat"):
         if pilihan_alat != "-- Pilih Alat --":
-            stok_saat_ini = database_alat[pilihan_alat]['stok']
+            stok_saat_ini = database_alat[pilihan_final]['stok']
             
-            # Memunculkan status ketersediaan secara utuh
             if stok_saat_ini > 0:
-                st.success(f"Alat '{pilihan_alat}' TERSEDIA di Laboratorium")    
+                st.success(f"Alat '{pilihan_final}' TERSEDIA di Laboratorium")    
                 c_img, c_fng = st.columns([1, 2])
                 with c_img:
                     try:
-                        st.image(database_alat[pilihan_alat]["img"], use_container_width=True, caption=pilihan_alat)
+                        st.image(database_alat[pilihan_final]["img"], use_container_width=True, caption=pilihan_final)
                     except:
                         st.write("📸 *Pratinjau Gambar Siap Ditambahkan*")
                 with c_fng:
-                    st.info(f"**Fungsi Utama:** {database_alat[pilihan_alat]['fungsi']}")
+                    st.info(f"**Fungsi Utama:** {database_alat[pilihan_final]['fungsi']}")
                     st.metric(label="Jumlah Stok Tersedia (Qty)", value=f"{stok_saat_ini} unit")
-                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_alat}' ditemukan. Stok: {stok_saat_ini} unit.")
+                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_final}' ditemukan. Stok: {stok_saat_ini} unit.")
             else:
-                st.error(f"Alat '{pilihan_alat}' TIDAK TERSEDIA (Stok Habis)!")
-                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_alat}' TIDAK TERSEDIA.")
+                st.error(f"Alat '{pilihan_final}' TIDAK TERSEDIA (Stok Habis)!")
+                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_final}' TIDAK TERSEDIA.")
         else:
             st.warning("Silakan pilih salah satu nama alat pada menu drop-down terlebih dahulu.")
 
