@@ -431,16 +431,16 @@ elif menu == "Kalkulator Kadar":
         """, unsafe_allow_html=True)
         
         if pilihan == "Kadar Asam Asetat":
-            st.sidebar.latex(r"\% \text{Kadar} = \frac{V \times N \times \text{BE}_{\text{Asam Asetat}} \times 10^{-3} \times FP \times 100%}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Kadar} = \frac{V \times N \times \text{BE}_{\text{Asam Asetat}} \times 10^{-3} \times FP \times 100}{V_{\text{sampel}}}")
         elif pilihan == "NaOH dan Na2CO3 (Warder)":
-            st.sidebar.latex(r"\% \text{Na}_2\text{CO}_3 = \frac{2 \times (b - a) \times N \times \text{BE}_{\text{Na}_2\text{CO}_3} \times 10^{-3} \times 100%}{V_{\text{sampel}}}")
-            st.sidebar.latex(r"\% \text{NaOH} = \frac{(2a - b) \times N \times \text{BE}_{\text{NaOH}} \times 10^{-3} \times 100%}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Na}_2\text{CO}_3 = \frac{2 \times (b - a) \times N \times \text{BE}_{\text{Na}_2\text{CO}_3} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{NaOH} = \frac{(2a - b) \times N \times \text{BE}_{\text{NaOH}} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
         elif pilihan == "Kadar Besi(Fe)":
-            st.sidebar.latex(r"\% \text{Kadar Fe} = \frac{V \times N \times \text{BE}_{\text{Fe}} \times 10^{-3} \times 100%}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Kadar Fe} = \frac{V \times N \times \text{BE}_{\text{Fe}} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
         elif pilihan == "Kadar Klorida(Cl) Iodometri":
-            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times \text{BE}_{\text{Cl}} \times 10^{-3} \times \frac{100}{5} \times 100%}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times \text{BE}_{\text{Cl}} \times 10^{-3} \times \frac{100}{5} \times 100}{V_{\text{sampel}}}")
         elif pilihan == "Kadar Klorida(Cl) Argentometri":
-            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times \text{BE}_{\text{Cl}} \times 10^{-3} \times 100%}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times \text{BE}_{\text{Cl}} \times 10^{-3} \times 100}{V_{\text{sampel}}}")
         elif pilihan == "Kesadahan Air":
             st.sidebar.latex(r"\text{Kesadahan CaCO}_3 = \frac{V \times M \times \text{BM}_{\text{CaCO}_3}}{V_{\text{sampel}}}")
 
