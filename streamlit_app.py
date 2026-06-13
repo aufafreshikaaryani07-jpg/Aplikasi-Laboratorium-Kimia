@@ -201,7 +201,7 @@ database_alat = {
     "Sentrifus": {"fungsi": "Memisahkan endapan dan organel komponen cair berbasis gaya sentrifugal.", "stok": 5, "img": "Sentrifus.jpg.jpeg"},
     "Segitiga Porselen": {"fungsi": "Penyangga cawan porselen saat dipanaskan di atas kaki tiga.", "stok": 15, "img": "Segitiga Porselen.jpg.jpeg"},
     "Spatula Logam": {"fungsi": "Sendok kecil untuk mengambil sampel berwujud padat atau serbuk.", "stok": 40, "img": "Spatula Logam.jpg.jpeg"},
-    "Spektrofotometer AAS": {"fungsi": "Menganalisis konsentrasi unsur logam dalam sampel berdasarkan prinsip spektrometri serapan atom menggunakan nyala api.", "stok": 2, "img": "Spektrofotometer AAS.jpg(1).jpeg"},
+    "Spektrofotometer AAS": {"fungsi": "Menganalisis konsentrasi unsur logam dalam sampel berdasarkan prinsip spektrometri serapan atom menggunakan nyala api.", "stok": 2, "img": "Spektrofotometer AAS.jpg.jpeg"},
     "Spektrofotometer GC": {"fungsi": "Mengidentifikasi, memisahkan, dan mengukur kadar komponen senyawa organik volatil (mudah menguap) pada fase gas.", "stok": 1, "img": "Spektrofotometer GC.jpg.jpeg"},
     "Spektrofotometer HPLC": {"fungsi": "Memisahkan komponen analit non-volatil fase cair dengan akurasi dan tekanan tinggi serta mendeteksi konsentrasinya.", "stok": 2, "img": "Spektrofotometer HPLC.jpg.jpeg"},
     "Spektrofotometer UV-Vis": {"fungsi": "Mengukur nilai absorbansi dan transmitansi larutan berwarna pada spektrum panjang gelombang ultra-violet dan sinar tampak.", "stok": 4, "img": "Spektrofotometer UV-Vis.jpg.jpeg"},
