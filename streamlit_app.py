@@ -203,4 +203,407 @@ database_alat = {
     "Spektrofotometer": {"fungsi": "Mengukur nilai absorbansi dan transmitansi gelombang cahaya sampel larutan.", "stok": 3, "img": "Spektrofotometer.jpg.jpeg"},
     "Statif": {"fungsi": "Tiang logam vertikal dasar kokoh yang menyangga dudukan klem buret.", "stok": 30, "img": "Statif.jpg.jpeg"},
     "Pembakar Spiritus": {"fungsi": "Lampu pembakar portable bermedia bahan bakar spirtus cair.", "stok": 20, "img": "Pembakar Spiritus.jpg.jpeg"},
-    "Soxhlet": {"fungsi": "Ekstraksi komponen zat aktif padat menggunakan pelarut cair berulang kali.", "stok": 4, "
+    "Soxhlet": {"fungsi": "Ekstraksi komponen zat aktif padat menggunakan pelarut cair berulang kali.", "stok": 4, "img": "Soxhlet.jpg.jpeg"},
+    "Tabung Reaksi": {"fungsi": "Wadah silindris kaca kecil untuk uji reaksi kualitatif zat kimia.", "stok": 120, "img": "Tabung Reaksi.jpg.jpeg"},
+    "Tanur": {"fungsi": "Pemanas lab suhu ultra tinggi untuk proses pengabuan sampel zat kimia.", "stok": 2, "img": "Tanur.jpg.jpeg"},
+    "Tutup Kaca": {"fungsi": "Penutup khusus botol reagen atau labu untuk mencegah penguapan.", "stok": 35, "img": "Tutup Kaca.jpg.jpeg"},
+    "Termometer": {"fungsi": "Mengukur tingkat suhu lingkungan larutan reaksi kimia.", "stok": 25, "img": "Termometer.jpg.jpeg"},
+    "Vortex": {"fungsi": "Mengocok secara cepat tabung reaksi berisi sampel agar larut homogen.", "stok": 6, "img": "Vortex.jpg.jpeg"},
+    "Waterbath": {"fungsi": "Pemanas lab tidak langsung dengan media air untuk menjaga stabilitas suhu sampel.", "stok": 4, "img": "Waterbath.jpg.jpeg"}
+}
+alat_lab = sorted(list(database_alat.keys()))
+
+
+# =====================================================
+# HOME
+# =====================================================
+if menu == "Home":
+    senyawa_list = ["❄️", "KMnO4", "H2SO4", "HCl", "NaOH", "CH3COOH", "NaCl", "C6H12O6", "H2O", "NH3", "✨"]
+    rumus_terbang = random.choices(senyawa_list, k=40)
+    
+    gerakan_css = "<style>"
+    for i in range(len(rumus_terbang)):
+        durasi = random.uniform(5, 15)
+        posisi_x = random.uniform(0, 95)
+        skala_font = random.randint(12, 22)
+        opasitas = random.uniform(0.1, 0.4)
+        
+        gerakan_css += f"""
+        @keyframes terbang-{i} {{
+            0% {{ transform: translateY(-10vh) rotate(0deg); }}
+            100% {{ transform: translateY(110vh) rotate(360deg); }}
+        }}
+        .partikel-{i} {{
+            position: fixed; top: -50px; left: {posisi_x}%;
+            animation: terbang-{i} {durasi}s linear infinite;
+            font-size: {skala_font}px; opacity: {opasitas};
+            color: #0077b6; font-weight: bold; pointer-events: none; z-index: 999;
+        }}
+        """
+    gerakan_css += "</style>"
+    st.markdown(gerakan_css, unsafe_allow_html=True)
+    
+    for i, teks in enumerate(rumus_terbang):
+        st.markdown(f'<div class="partikel-{i}">{teks}</div>', unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="hero">    
+    <div style="font-size: 55px; margin-bottom: 10px;">⚛️ 🧪 🧬</div>
+    <h1>MOLEVIA</h1>    
+    <h3>The Pathway Through Chemistry</h3>    
+    <p>    
+    Molevia hadir sebagai platform laboratorium digital yang mengintegrasikan perhitungan kimia    
+    dan manajemen inventaris dalam satu aplikasi yang sederhana, cepat, dan akurat.    
+    </p>    
+    </div>    
+    """, unsafe_allow_html=True)    
+    st.image(
+        "https://images.unsplash.com/photo-1579165466741-7f35e4755660",
+        use_container_width=True
+    )
+    st.write("")
+
+    a,b,c = st.columns(3)
+
+    with a:
+        st.markdown("""
+        <div class="card">
+        <h3>🔍 Pencarian Alat</h3>
+        <p>Temukan alat laboratorium dengan cepat dan mudah beserta visual gambarnya.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with b:
+        st.markdown("""
+        <div class="card">
+        <h3>📊 Riwayat Data</h3>
+        <p>Akses kembali hasil perhitungan terdahulu Anda secara real-time.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with c:
+        st.markdown("""
+        <div class="card">
+        <h3>🧮 Kalkulator Kimia</h3>
+        <p>Molaritas, Pengenceran, Kadar dan pH dengan rumus transparan.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div style="    
+    background:linear-gradient(135deg,#001845,#023e8a,#0077b6);    
+    padding:25px;    
+    border-radius:20px;    
+    color:white;    
+    text-align:center;    
+    margin-top:10px;    
+    margin-bottom:20px;    
+    ">    <p style="font-size:17px;">    
+    Selamat menggunakan aplikasi laboratorium kimia yang dirancang untuk membantu    
+    mahasiswa, praktikan, dan peneliti dalam melakukan perhitungan serta pencarian    
+    alat laboratorium secara cepat, mudah, dan akurat.    
+    </p>    <p>    
+    Gunakan menu di sebelah kiri untuk mengakses seluruh fitur laboratorium    
+    </p>    </div>    
+    """, unsafe_allow_html=True)    
+    st.divider()
+
+
+# =====================================================
+# MENU CEK ALAT
+# =====================================================
+elif menu == "Cek Stok Alat Laboratorium":
+    st.header("CEK STOK ALAT LABORATORIUM")
+    
+    pilihan_alat = st.selectbox("Pilih alat yang ingin dicek:", ["-- Pilih Alat --"] + alat_lab)
+    
+    # Kondisi sub-fitur spesifik ketika memilih Spektrofotometer
+    if pilihan_alat == "Spektrofotometer":
+        jenis_spektro = st.selectbox(
+            "Pilih Jenis Spektrofotometer:",
+            ["Spektrofotometer UV-Vis", "Gas Chromatography (GC)", "High-Performance Liquid Chromatography (HPLC)", "Atomic Absorption Spectroscopy (AAS)"]
+        )
+    
+    if st.button("Cek Detail Alat"):
+        if pilihan_alat != "-- Pilih Alat --":
+            stok_saat_ini = database_alat[pilihan_alat]['stok']
+            
+            if stok_saat_ini > 0:
+                nama_tampilan = f"{pilihan_alat} ({jenis_spektro})" if pilihan_alat == "Spektrofotometer" else pilihan_alat
+                st.success(f"Alat '{nama_tampilan}' TERSEDIA di Laboratorium")    
+                c_img, c_fng = st.columns([1, 2])
+                with c_img:
+                    try:
+                        st.image(database_alat[pilihan_alat]["img"], use_container_width=True, caption=nama_tampilan)
+                    except:
+                        st.write("📸 *Pratinjau Gambar Siap Ditambahkan*")
+                with c_fng:
+                    st.info(f"**Fungsi Utama:** {database_alat[pilihan_alat]['fungsi']}")
+                    st.metric(label="Jumlah Stok Tersedia (Qty)", value=f"{stok_saat_ini} unit")
+                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{nama_tampilan}' ditemukan. Stok: {stok_saat_ini} unit.")
+            else:
+                st.error(f"Alat '{pilihan_alat}' TIDAK TERSEDIA (Stok Habis)!")
+                st.session_state.riwayat_pencarian.append(f"Cek Stok ➔ Alat: '{pilihan_alat}' TIDAK TERSEDIA.")
+        else:
+            st.warning("Silakan pilih salah satu nama alat pada menu drop-down terlebih dahulu.")
+
+    st.write("---")
+    st.subheader("Katalog Inventaris Lengkap")
+    
+    for nama_item, data_item in database_alat.items():
+        with st.expander(f"📦 {nama_item} (Stok: {data_item['stok']} Unit)"):
+            col_kiri, col_kanan = st.columns([1, 4])
+            with col_kiri:
+                try:
+                    st.image(data_item["img"], use_container_width=True)
+                except:
+                    st.write("⚠️ Gambar belum dimasukkan.")
+            with col_kanan:
+                st.write(f"**Deskripsi Fungsi:** {data_item['fungsi']}")
+                if data_item['stok'] > 0:
+                    st.write(f"**Status Ketersediaan:** {data_item['stok']} unit siap digunakan praktikum.")
+                else:
+                    st.write("**Status Ketersediaan:** ❌ Alat TIDAK TERSEDIA (Stok Habis).")
+
+
+# =====================================================
+# MENU KALKULATOR MOLARITAS
+# =====================================================
+elif menu == "Kalkulator Molaritas":
+    st.header("KALKULATOR MOLARITAS")
+    
+    mol = st.number_input("Masukkan jumlah mol (mol):", min_value=0.0)
+    volume = st.number_input("Masukkan volume larutan (L):", min_value=0.0001)
+    if st.button("Hitung Molaritas"):
+        hasil = mol / volume    
+        st.success(f"Molaritas = {round(hasil, 3)} M")
+        st.session_state.riwayat_pencarian.append(f"Molaritas ➔ {round(hasil, 3)} M")
+
+
+# =====================================================
+# MENU KALKULATOR PENGENCERAN
+# =====================================================
+elif menu == "Kalkulator Pengenceran":
+    st.header("KALKULATOR PENGENCERAN")
+    
+    M1 = st.number_input("Masukkan M1 (M):", min_value=0.0)
+    V1 = st.number_input("Masukkan V1 (mL):", min_value=0.0)
+    M2 = st.number_input("Masukkan M2 (M):", min_value=0.0001)
+    if st.button("Hitung Pengenceran"):
+        V2 = (M1 * V1) / M2    
+        st.success(f"V2 = {round(V2, 2)} mL")
+        st.session_state.riwayat_pencarian.append(f"Pengenceran ➔ V2: {round(V2, 2)} mL")
+
+
+# =====================================================
+# MENU KALKULATOR KADAR
+# =====================================================
+elif menu == "Kalkulator Kadar":
+    st.header("KALKULATOR KADAR PENETAPAN ANALISIS TITRIMETRI")
+    
+    pilihan = st.selectbox(
+        "Pilih Jenis Kadar", 
+        [
+            "Kadar Asam Asetat", 
+            "NaOH dan Na2CO3 (Warder)", 
+            "Kadar Besi(Fe)", 
+            "Kadar Klorida(Cl) Iodometri", 
+            "Kadar Klorida(Cl) Argentometri", 
+            "Kesadahan Air"
+        ]
+    )
+
+    with st.sidebar:
+        st.markdown("""
+        <div class="penjelasan-sidebar">
+            <strong>📚 Kegunaan:</strong><br>
+            Digunakan untuk mengukur persentase kandungan fraksi zat analit tertentu di dalam sampel melalui teknik titrimetri.<br><br>
+            <strong>🧪 Rumus Kadar Spesifik:</strong>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if pilihan == "Kadar Asam Asetat":
+            st.sidebar.latex(r"\% \text{Kadar} = \frac{V \times N \times 60 \times 10^{-3} \times FP \times 100}{V_{\text{sampel}}}")
+        elif pilihan == "NaOH dan Na2CO3 (Warder)":
+            st.sidebar.latex(r"\% \text{Na}_2\text{CO}_3 = \frac{2 \times (b - a) \times N \times 53 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+            st.sidebar.latex(r"\% \text{NaOH} = \frac{(2a - b) \times N \times 40 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        elif pilihan == "Kadar Besi(Fe)":
+            st.sidebar.latex(r"\% \text{Kadar Fe} = \frac{V \times N \times 56 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        elif pilihan == "Kadar Klorida(Cl) Iodometri":
+            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times BE \times 10^{-3} \times \frac{100}{5} \times 100}{V_{\text{sampel}}}")
+        elif pilihan == "Kadar Klorida(Cl) Argentometri":
+            st.sidebar.latex(r"\% \text{Kadar Cl} = \frac{V \times N \times 35.5 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        elif pilihan == "Kesadahan Air":
+            st.sidebar.latex(r"\text{Kesadahan CaCO}_3 = \frac{V \times M \times 100}{V_{\text{sampel}}}")
+
+    # Blok Input dan Operasi Perhitungan Halaman Utama
+    if pilihan == "Kadar Asam Asetat":
+        st.latex(r"\% \text{Kadar Asam Asetat} = \frac{V \times N \times 60 \times 10^{-3} \times FP \times 100}{V_{\text{sampel}}}")
+        V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
+        N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
+        FP = st.number_input("Faktor pengenceran (FP)", min_value=1.0, value=1.0)    
+        V_sampel = st.number_input("Volume sampel (mL)", min_value=0.1, value=1.0)    
+        if st.button("Hitung Kadar"):    
+            hasil = ((V * N * 60) * (10**-3) * FP * 100) / V_sampel    
+            st.success(f"Kadar CH3COOH = {round(hasil,2)} %")
+            st.session_state.riwayat_pencarian.append(f"Kadar CH3COOH ➔ {round(hasil,2)} %")
+
+    elif pilihan == "NaOH dan Na2CO3 (Warder)":
+        st.latex(r"\% \text{Na}_2\text{CO}_3 = \frac{2 \times (b - a) \times N \times 53 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        st.latex(r"\% \text{NaOH} = \frac{(2a - b) \times N \times 40 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        a = st.number_input("Volume titrasi 1 / a (mL)", min_value=0.0)    
+        b = st.number_input("Volume titrasi 2 / b (mL)", min_value=0.0)    
+        N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
+        V_sampel = st.number_input("Volume sampel (mL)", min_value=0.1, value=10.0)    
+        if st.button("Hitung Kadar"):    
+            BE_NaOH = 40    
+            BE_Na2CO3 = 53    
+            Na2CO3 = ((2 * (b-a)* N * BE_Na2CO3) * (10**-3) * 100) / V_sampel    
+            NaOH = (((2*a - b)* N * BE_NaOH) * (10**-3) * 100) / V_sampel    
+            st.success(f"Kadar NaOH = {round(NaOH,2)} %")    
+            st.success(f"Kadar Na2CO3 = {round(Na2CO3,2)} %")
+            st.session_state.riwayat_pencarian.append(f"Kadar Warder ➔ NaOH: {round(NaOH,2)}%, Na2CO3: {round(Na2CO3,2)}%")
+
+    elif pilihan == "Kadar Besi(Fe)":
+        st.latex(r"\% \text{Kadar Fe} = \frac{V \times N \times 56 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
+        N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
+        V_sampel = st.number_input("Volume sampel (mL)", min_value=0.1, value=1.0)    
+        if st.button("Hitung Kadar"):    
+            hasil = ((V * N * 56) * (10**-3) * 100) / V_sampel    
+            st.success(f"Kadar Fe = {round(hasil,2)} %")
+            st.session_state.riwayat_pencarian.append(f"Kadar Fe ➔ {round(hasil,2)} %")
+
+    elif pilihan == "Kadar Klorida(Cl) Iodometri":
+        st.latex(r"\% \text{Kadar Cl (Iodometri)} = \frac{V \times N \times BE \times 10^{-3} \times \frac{100}{5} \times 100}{V_{\text{sampel}}}")
+        V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
+        N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
+        V_sampel = st.number_input("Volume sampel (mL)", min_value=0.1, value=10.0)    
+        if st.button("Hitung Kadar"):    
+            hasil = ((V * N * 17.75) * (10**-3) * (100/5) * 100) / V_sampel    
+            st.success(f"Kadar Cl = {round(hasil,2)} %")
+            st.session_state.riwayat_pencarian.append(f"Kadar Cl Iodometri ➔ {round(hasil,2)} %")
+
+    elif pilihan == "Kadar Klorida(Cl) Argentometri":
+        st.latex(r"\% \text{Kadar Cl (Argentometri)} = \frac{V \times N \times 35.5 \times 10^{-3} \times 100}{V_{\text{sampel}}}")
+        V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
+        N = st.number_input("Normalitas / N (mgrek/mL)", min_value=0.0, format="%.4f")    
+        V_sampel = st.number_input("Volume sampel (mL)", min_value=0.1, value=10.0)    
+        if st.button("Hitung Kadar"):    
+            hasil = ((V * N * 35.5) * (10**-3) * 100) / V_sampel    
+            st.success(f"Kadar Cl = {round(hasil,2)} %")
+            st.session_state.riwayat_pencarian.append(f"Kadar Cl Argentometri ➔ {round(hasil,2)} %")
+
+    elif pilihan == "Kesadahan Air":
+        st.latex(r"\text{Kesadahan CaCO}_3 = \frac{V \times M \times 100}{V_{\text{sampel}}}")
+        V = st.number_input("Volume titrasi / V (mL)", min_value=0.0)    
+        M = st.number_input("Molaritas / M (mmol/mL)", min_value=0.0, format="%.4f")    
+        V_sampel = st.number_input("Volume sampel (L)", min_value=0.001, value=0.1)    
+        if st.button("Hitung Kadar"):    
+            hasil = ((V * M * 100)) / V_sampel    
+            st.success(f"Kadar CaCO3 = {round(hasil,2)} mg/L (ppm)")
+            st.session_state.riwayat_pencarian.append(f"Kesadahan Air ➔ {round(hasil,2)} ppm")
+
+
+# =====================================================
+# MENU KALKULATOR pH
+# =====================================================
+elif menu == "Kalkulator pH":
+    st.header("KALKULATOR pH")
+    
+    st.warning("""
+    📋 **Catatan:**
+    * Perhitungan ini dikhususkan untuk senyawa jenis **Asam Kuat Monovalen** langsung tanpa tetapan kesetimbangan.
+    * Parameter batasan output interval hasil akhir disesuaikan pada standar baku skala **0 hingga 14**.
+    """)
+
+    h_input = st.text_input("Masukkan konsentrasi H+ (contoh: 10^-4 atau 0.0001)", value="0.0001")
+    
+    if st.button("Hitung pH"):
+        try:    
+            h_input = h_input.replace(",", ".")
+
+            if "^" in h_input:
+                base, exp = h_input.split("^")
+                if base.strip() == "10":
+                    h = 10 ** float(exp)
+                else:
+                    h = float(h_input)
+            else:
+                h = float(h_input)
+
+            if h <= 0:
+                st.error("Konsentrasi H+ harus lebih besar dari 0!")
+            else:
+                hasil = -math.log10(h)
+                ph = round(hasil, 2)
+
+                if ph < 0: ph = 0
+                elif ph > 14: ph = 14
+
+                if ph < 1:
+                    sifat = "Asam Sangat Kuat"
+                elif ph < 3:
+                    sifat = "Asam Kuat"
+                elif ph < 6:
+                    sifat = "Asam Lemah"
+                elif ph == 7:
+                    sifat = "Netral"
+                elif ph <= 9:
+                    sifat = "Basa Lemah"
+                elif ph <= 12:
+                    sifat = "Basa Kuat"
+                else:
+                    sifat = "Basa Sangat Kuat"
+
+                if ph < 7:
+                    st.error(f"pH = {ph} ({sifat})")
+                elif ph == 7:
+                    st.info(f"pH = {ph} ({sifat})")
+                else:
+                    st.success(f"pH = {ph} ({sifat})")
+                
+                st.session_state.riwayat_pencarian.append(f"pH ➔ {ph} ({sifat})")
+        except:    
+            st.error("Masukkan angka desimal atau eksponen pangkat yang valid! (contoh: 10^-4 atau 0.0001)")
+
+
+# =====================================================
+# MENU RIWAYAT
+# =====================================================
+elif menu == "Riwayat":
+    st.header("⏳ RIWAYAT AKTIVITAS")
+    if st.session_state.riwayat_pencarian:
+        if st.button("Bersihkan Riwayat"):
+            st.session_state.riwayat_pencarian = []
+            st.rerun()
+        for i, item in enumerate(st.session_state.riwayat_pencarian, 1):
+            st.info(f"**{i}.** {item}")
+    else:
+        st.write("Belum ada riwayat aktivitas.")
+
+
+# =====================================================
+# MENU CREATOR
+# =====================================================
+elif menu == "Creator":
+    st.header("👤 INFORMASI CREATOR")
+    col_foto, col_data = st.columns([1, 1])
+    
+    with col_foto:
+        try:
+            st.image("Foto Kelompok.jpg (2).jpeg", use_container_width=True, caption="Kelompok 12_1D Politeknik AKA Bogor")
+        except:
+            st.error("File 'Foto Kelompok.jpg (2).jpeg' belum terdeteksi.")
+        
+    with col_data:
+        st.markdown("""
+        <div class="card" style="text-align: left; padding: 30px; height: 100%;">
+            <h2 style="color: #023e8a; margin-bottom: 10px;">🚀 Anggota Kelompok</h2>
+            <hr style="border: 0; border-top: 1px solid #edf6ff; margin-bottom: 20px;">
+            <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Aufa Freshika Aryani</strong> (NIM : 2560588)</p>
+            <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Aura Halimah Natanegoro</strong> (NIM : 2560589)</p>
+            <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Ayu Asyfa Mei Asyhari</strong> (NIM : 2560593)</p>
+            <p style="font-size: 16px; margin-bottom: 12px;"><strong>• Oscar Tirta Sugema</strong> (NIM : 2560735)</p>
+        </div>
+        """, unsafe_allow_html=True)
